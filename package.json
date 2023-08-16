@@ -2,7 +2,8 @@
   "name": "entrega-01",
   "version": "0.1.0",
   "private": true,
-    "homepage": "https://mariaFlorenciaMerzario.github.io/react-github-pages/build",
+                
+  "homepage": "https://mariaflorenciamerzario.github.io/reactCoder.github.io",
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "@testing-library/jest-dom": "^5.17.0",
