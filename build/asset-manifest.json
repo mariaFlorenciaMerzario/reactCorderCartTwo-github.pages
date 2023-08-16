@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/reactCoder.github.io/static/css/main.536e33e5.css",
+    "main.js": "/reactCoder.github.io/static/js/main.cfa516b3.js",
+    "static/js/787.22d6e830.chunk.js": "/reactCoder.github.io/static/js/787.22d6e830.chunk.js",
+    "static/media/logol.png": "/reactCoder.github.io/static/media/logol.4435d67bbe7b1ed9b28e.png",
+    "static/media/argentinas.jpg": "/reactCoder.github.io/static/media/argentinas.08a46abd27b96b4a01dc.jpg",
+    "index.html": "/reactCoder.github.io/index.html",
+    "main.536e33e5.css.map": "/reactCoder.github.io/static/css/main.536e33e5.css.map",
+    "main.cfa516b3.js.map": "/reactCoder.github.io/static/js/main.cfa516b3.js.map",
+    "787.22d6e830.chunk.js.map": "/reactCoder.github.io/static/js/787.22d6e830.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.536e33e5.css",
+    "static/js/main.cfa516b3.js"
+  ]
+}
