@@ -1,7 +1,8 @@
-
 import FormSearchNav from "./FormSearchNav"
 import Logo from "./Logo"
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
 const Navbar = () => {
     return(
      
@@ -17,13 +18,16 @@ const Navbar = () => {
                    <button className="btn btn-dark">Productos</button> 
                    <button className="btn btn-dark mx-2">Promos</button> 
                 </div>
+                    <div className="m-5 fontAwesomeIconCart"><FontAwesomeIcon icon={faCartPlus} /></div>
             </div>
             {/* <a className="aCart" onclick="$('#modal').modal({ show:true }),mostrarCarrito()">
                 <ion-icon className="cart" name="cart-outline" id="cartNav"></ion-icon>
             </a>  */}
+           
             </nav>
             <FormSearchNav />
-   
+           
+           
         </div>
         
        

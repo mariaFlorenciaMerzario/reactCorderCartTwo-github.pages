@@ -1,12 +1,12 @@
 
-const FormSearchNav = () => {
-    return(
+function FormSearchNav() {
+    return (
         <form className="form-inline w-50 m-4" id="searchSelected">
-            <input 
+            <input
                 className="form-control mr-sm-2 w-75" type="search"
-                placeholder=" Ingresa el nombre a buscar" 
+                placeholder=" Ingresa el nombre a buscar"
                 aria-label="Search"
-                id="inputSearch" 
+                id="inputSearch"
             >
             </input>
         </form>
