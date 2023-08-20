@@ -1,4 +1,3 @@
-
 function FormSearchNav() {
     return (
         <form className="form-inline w-50 m-4" id="searchSelected">

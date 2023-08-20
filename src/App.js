@@ -13,14 +13,16 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 
 import ItemListContainer from './Components/ItemListContainer/ItemListContainer';
-import Navbar from './Components/Navbar/Navbar.js';
+import Navbar from './Components/Navbar/Navbar';
 import Container from './Components/Container/Container';
+import Footer from './Components/Footer/Footer';
 
 
 function App() {
   return (
     <div className="App">
     <Container/>
+    <Footer />
     </div>
   );
 }

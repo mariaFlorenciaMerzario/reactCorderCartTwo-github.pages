@@ -6,7 +6,7 @@ const Container = () => {
         <>
          <div className="container">
             <Navbar/>
-            <ItemListContainer greeting={'bienvenidos'}/>
+            <ItemListContainer greeting={'Bienvenidos'}/>
             <Main />
          </div>
         </>

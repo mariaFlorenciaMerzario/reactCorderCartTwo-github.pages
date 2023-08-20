@@ -4,6 +4,9 @@
   "private": true,
   "homepage": "https://mariaflorenciamerzario.github.io/reactCoder.github.io/build",
   "dependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
@@ -12,6 +15,9 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "autoprefixer": "^10.0.2",
+    "babel-loader": "^8.2.0",
+    "babel-plugin-module-resolver": "^4.0.0",
     "bootstrap": "^5.3.1",
     "jquery": "^3.7.0",
     "popper.js": "^1.16.1",
@@ -19,6 +25,7 @@
     "react-bootstrap": "^2.8.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "request": "^2.79.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -46,6 +53,8 @@
     ]
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.22.10"
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.22.10",
+    "@babel/preset-react": "^7.22.5"
   }
 }
