@@ -12,9 +12,9 @@ const Navbar = () => {
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
                 <div className="navbar-nav m-auto">
-                   <button className="btn btn-warning mx-3">Hacé tu pedido</button> 
-                   <button className="btn btn-dark">Productos</button> 
-                   <button className="btn btn-dark mx-2">Promos</button> 
+                   <button className="btn btn-warning m-2">Hacé tu pedido</button> 
+                   <button className="btn btn-dark m-2">Productos</button> 
+                   <button className="btn btn-dark m-2">Promos</button> 
                 </div>
                     {/* <div className="m-5 fontAwesomeIconCart"><FontAwesomeIcon icon={faCartPlus}/>1</div> */}
             </div>
