@@ -18,7 +18,7 @@ const Navbar = () => {
                 </div>
                     {/* <div className="m-5 fontAwesomeIconCart"><FontAwesomeIcon icon={faCartPlus}/>1</div> */}
             </div>
-            <CartWidget />
+           
             {/* <a className="aCart" onclick="$('#modal').modal({ show:true }),mostrarCarrito()">
                 <ion-icon className="cart" name="cart-outline" id="cartNav"></ion-icon>
             </a>  */}
