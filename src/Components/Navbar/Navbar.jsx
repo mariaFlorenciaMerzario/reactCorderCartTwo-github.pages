@@ -2,8 +2,8 @@ import Navbarnav from '../Navbar/Navbar.css'
 import CartWidget from "../CartWidget/CartWidget"
 import FormSearchNav from "./FormSearchNav"
 import Logo from "./Logo"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
+import Cart from '../Cart/Cart'
+
 const Navbar = () => {
     return(
      
@@ -20,8 +20,7 @@ const Navbar = () => {
                    <button className="btn btn-dark m-2">Productos</button> 
                    <button className="btn btn-dark m-2">Promos</button> 
                 </div>
-                <div className="m-5 fontAwesomeIconCart text-white"><FontAwesomeIcon icon={faCartPlus} /></div>
-                  
+               <Cart quantity="1"/>
             </div>
            
             {/* <a className="aCart" onclick="$('#modal').modal({ show:true }),mostrarCarrito()">
