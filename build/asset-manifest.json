@@ -1,16 +1,28 @@
 {
   "files": {
-    "main.css": "/reactCoder.github.io/build/static/css/main.0e053d3c.css",
-    "main.js": "/reactCoder.github.io/build/static/js/main.d2ac33dc.js",
+    "main.css": "/reactCoder.github.io/build/static/css/main.f5e58f50.css",
+    "main.js": "/reactCoder.github.io/build/static/js/main.4b6a47a0.js",
     "static/js/787.22d6e830.chunk.js": "/reactCoder.github.io/build/static/js/787.22d6e830.chunk.js",
+    "static/media/criolla.jpg": "/reactCoder.github.io/build/static/media/criolla.bae3e5aed832af7937fe.jpg",
+    "static/media/carneFrita.jpeg": "/reactCoder.github.io/build/static/media/carneFrita.fe4cea4135f3cb6b8ac3.jpeg",
+    "static/media/banner.jpg": "/reactCoder.github.io/build/static/media/banner.bb49d6c2e9890f572ab5.jpg",
+    "static/media/pollo.jpg": "/reactCoder.github.io/build/static/media/pollo.4a7589a806475c93d69f.jpg",
+    "static/media/jamonQueso.jpg": "/reactCoder.github.io/build/static/media/jamonQueso.d1fc54083d607e49c69f.jpg",
+    "static/media/saltena.jpg": "/reactCoder.github.io/build/static/media/saltena.6ea0ce8d2590b238fb43.jpg",
+    "static/media/capresse.jpg": "/reactCoder.github.io/build/static/media/capresse.2e2f8cb040edc75fa849.jpg",
+    "static/media/carne.jpg": "/reactCoder.github.io/build/static/media/carne.8c1ec1b6a9b14eb576db.jpg",
+    "static/media/roquefortJamon.jpg": "/reactCoder.github.io/build/static/media/roquefortJamon.e48795a0cbf0369396b1.jpg",
     "static/media/logol.png": "/reactCoder.github.io/build/static/media/logol.4435d67bbe7b1ed9b28e.png",
+    "static/media/argentinas.jpg": "/reactCoder.github.io/build/static/media/argentinas.08a46abd27b96b4a01dc.jpg",
+    "static/media/logo.jpg": "/reactCoder.github.io/build/static/media/logo.57446099744105fd60f6.jpg",
+    "static/media/roqueforJamon.jfif": "/reactCoder.github.io/build/static/media/roqueforJamon.a7a6d4b406bbf8d7e6a5.jfif",
     "index.html": "/reactCoder.github.io/build/index.html",
-    "main.0e053d3c.css.map": "/reactCoder.github.io/build/static/css/main.0e053d3c.css.map",
-    "main.d2ac33dc.js.map": "/reactCoder.github.io/build/static/js/main.d2ac33dc.js.map",
+    "main.f5e58f50.css.map": "/reactCoder.github.io/build/static/css/main.f5e58f50.css.map",
+    "main.4b6a47a0.js.map": "/reactCoder.github.io/build/static/js/main.4b6a47a0.js.map",
     "787.22d6e830.chunk.js.map": "/reactCoder.github.io/build/static/js/787.22d6e830.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0e053d3c.css",
-    "static/js/main.d2ac33dc.js"
+    "static/css/main.f5e58f50.css",
+    "static/js/main.4b6a47a0.js"
   ]
 }
