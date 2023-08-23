@@ -2,7 +2,7 @@ import Navbarnav from '../Navbar/Navbar.css'
 import CartWidget from "../CartWidget/CartWidget"
 import FormSearchNav from "./FormSearchNav"
 import Logo from "./Logo"
-import Cart from '../Cart/Cart'
+//import Cart from '../Cart/Cart'
 import Button from '../Container/button/Button'
 
 const Navbar = () => {
@@ -20,7 +20,8 @@ const Navbar = () => {
                         <Button class="btn btn-dark m-2" value="Productos"/>
                         <Button class="btn btn-dark m-2" value="Promos"/>
                     </div>
-                        <Cart quantity="1"/>
+                        <CartWidget quantity="1" textWite="text-white"/>
+                        
                 </div>
                 {/* <a className="aCart" onclick="$('#modal').modal({ show:true }),mostrarCarrito()">
                     <ion-icon className="cart" name="cart-outline" id="cartNav"></ion-icon>
