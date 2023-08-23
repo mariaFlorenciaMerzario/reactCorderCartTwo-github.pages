@@ -13,7 +13,7 @@ const Card = (props) => {
             <p>{props.description}</p>
            <div className='d-flex justify-content-center'>
       </div>
-          <ItemCount />  
+          <ItemCount initial={1} stock={10} onAdd={(quantity) =>console.log('Cantidad agregada' , quantity)}/>  
           
         </div>
       </div>
