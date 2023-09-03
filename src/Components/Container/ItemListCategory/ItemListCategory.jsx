@@ -1,15 +1,19 @@
-import Card from "./Card"
-import { getProducts} from '../../json'
+import Card from "../Card"
+import { getProducts, getProductsByCategory} from '../../../json'
 import { useState, useEffect } from "react"
-import SpinnerB from "../Spinner/SpinnerB"
+import SpinnerB from "../../Spinner/SpinnerB"
 
 import { useParams } from "react-router-dom"
-const Main = () => {
-    const [products, setProducts] = useState([])
-   
 
+const ItemListCategory = () => {
+    const [products, setProducts] = useState([])
+    let {categoryId} = useParams()
+    categoryId = parseInt(categoryId)
+  
+    console.log(parseInt(categoryId))
     useEffect(() =>{
-        getProducts()
+        const asyncFunc = categoryId ? getProductsByCategory : getProducts
+        asyncFunc(categoryId)
         .then(response =>{
             setProducts(response)
         })
@@ -17,10 +21,10 @@ const Main = () => {
             console.error(error)
         })
 
-    },[])
+    },[categoryId])
     return(
         <>
-        {console.log(products)}
+        {console.log(getProductsByCategory)}
         { products.length > 0 ?
             <div className="m-2 row d-flex flex-md-row flex-column justify-content-center">
                 {products.map((element, index) => (
@@ -41,4 +45,4 @@ const Main = () => {
       
     )
 }
-export default Main
+export default ItemListCategory

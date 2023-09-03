@@ -16,6 +16,10 @@
     width: 23%;
 }
 
+.tooltip{
+    color: orange;
+    background-color: antiquewhite;
+}
 .verMas:hover{
     background-color:black;
     color:white

@@ -11,17 +11,26 @@ import $ from 'jquery';
 import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
+import { BrowserRouter , Route , Routes} from 'react-router-dom';
 
-import ItemListContainer from './Components/ItemListContainer/ItemListContainer';
-import Navbar from './Components/Navbar/Navbar';
 import Container from './Components/Container/Container';
 import Footer from './Components/Footer/Footer';
-
-
+import ItemListCategory from './Components/Container/ItemListCategory/ItemListCategory';
 function App() {
   return (
     <div className="App">
-    <Container/>
+    
+    <BrowserRouter>
+    
+      <Routes>
+        <Route path='/reactCoder.github.io/build' element={<Container />}/>
+        <Route path='/reactCoder.github.io/build/category/:categoryId' element={<ItemListCategory />}/>
+        <Route path='/reactCoder.github.io/build/category/item/:itemId' element={<Container />}/>
+        <Route path='/reactCoder.github.io/build/category/:*' element={<h1>Not found</h1>}/>
+
+      </Routes>
+    </BrowserRouter>
+  
     <Footer />
     </div>
   );
