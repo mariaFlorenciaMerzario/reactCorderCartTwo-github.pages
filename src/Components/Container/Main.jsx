@@ -20,7 +20,7 @@ const Main = () => {
     },[])
     return(
         <>
-        {console.log(products)}
+       
         { products.length > 0 ?
             <div className="m-2 row d-flex flex-md-row flex-column justify-content-center">
                 {products.map((element, index) => (

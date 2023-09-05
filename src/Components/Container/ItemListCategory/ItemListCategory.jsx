@@ -7,8 +7,8 @@ import { useParams } from "react-router-dom"
 
 const ItemListCategory = () => {
     const [products, setProducts] = useState([])
-    let {categoryId} = useParams()
-    categoryId = parseInt(categoryId)
+    let categoryId_ = useParams()
+    let categoryId = parseInt(categoryId_)
   
     console.log(parseInt(categoryId))
     useEffect(() =>{

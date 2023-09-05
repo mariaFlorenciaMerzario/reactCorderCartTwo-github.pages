@@ -29,7 +29,7 @@ const Card = (props) => {
   let subtitle;
   const [modalIsOpen, setIsOpen] = useState(false);
   const [product, setProduct] = useState(null);
-
+  
   useEffect(()=>{
       getProductById(props.id)
       .then(response =>{
@@ -56,10 +56,10 @@ const Card = (props) => {
             <button 
                 
                 onClick={openModal}
-                  data-tooltip-id="my-tooltip" 
-                  data-tooltip-content="Ver más" 
-                  className='verMas'>
-                    <FontAwesomeIcon className="mx-2" icon={faMagnifyingGlass} />
+                data-tooltip-id="my-tooltip" 
+                data-tooltip-content="Ver más" 
+                className='verMas'>
+                <FontAwesomeIcon className="mx-2" icon={faMagnifyingGlass} />
             </button>
           <Tooltip 
             id="my-tooltip" 
