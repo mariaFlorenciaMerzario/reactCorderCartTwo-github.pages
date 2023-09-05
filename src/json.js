@@ -116,8 +116,9 @@ const promos =[
  export const getProductsByCategory =(categoryId) =>{
     return new Promise((resolve) =>{
         setTimeout(() =>{
-          
-            resolve(products.find(prod => prod.category === categoryId))
+          console.log(parseInt(categoryId))
+            resolve(products.filter(prod => prod.category === parseInt(categoryId)))
+           
         }, 2000)
     })
  }

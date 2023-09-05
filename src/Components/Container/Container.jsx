@@ -5,7 +5,7 @@ const Container = () => {
     return(
         <>
          <div className="container">
-            <Navbar/>
+       
             <ItemListContainer greeting={'Bienvenidos'}/>
             <Main />
          </div>

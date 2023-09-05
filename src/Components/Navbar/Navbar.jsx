@@ -9,7 +9,7 @@ import {NavLink, Link} from 'react-router-dom'
 const Navbar = () => {
     return(
      
-        <div className="m-4 row d-flex align-items-center justify-content-around">
+        <div className="m-4 p-4 row d-flex align-items-center justify-content-around">
             <nav className="navbar navbar-expand-lg navbar-light d-flex justify-content-around m-2 banner">
                 <Link to={'/reactCoder.github.io/build'} className="navbar-brand" href="#"><Logo/> </Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

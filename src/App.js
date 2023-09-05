@@ -16,12 +16,12 @@ import { BrowserRouter , Route , Routes} from 'react-router-dom';
 import Container from './Components/Container/Container';
 import Footer from './Components/Footer/Footer';
 import ItemListCategory from './Components/Container/ItemListCategory/ItemListCategory';
+import Navbar from './Components/Navbar/Navbar';
 function App() {
   return (
     <div className="App">
-    
     <BrowserRouter>
-    
+    <Navbar />
       <Routes>
         <Route path='/reactCoder.github.io/build' element={<Container />}/>
         <Route path='/reactCoder.github.io/build/category/:categoryId' element={<ItemListCategory />}/>
