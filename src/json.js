@@ -1,5 +1,6 @@
 // categorys: 1 (Carne y pollo) - 2 (jamon y queso y capresse) - 3 (especiales)
-const products =[
+const jsonFile = require('./json.json')
+/*const products =[
 {
     id: 1,
     image: 'argentinas.jpg',
@@ -105,8 +106,8 @@ const promos =[
         },3000)
     })
  }
-
- export const getProductById =(prodId) =>{
+*/
+ /*export const getProductById =(prodId) =>{
     return new Promise((resolve) =>{
         setTimeout(() =>{
             resolve(products.find(prod => prod.id === prodId))
@@ -121,4 +122,35 @@ const promos =[
            
         }, 2000)
     })
+ }*/
+ export async function getProducts() {
+    const res = await fetch(jsonFile);
+    const json = await res.json();
+    if (res.ok) {
+     
+        return json.products
+    }
+    throw new Error(json.message);
+
+}
+  
+ export const getProductById =(prodId) =>{
+   /* return new Promise((resolve) =>{
+        setTimeout(() =>{
+            resolve(products.find(prod => prod.id === prodId))
+        }, 2000)
+    })*/
  }
+ export const getProductsByCategory =(categoryId) =>{
+    return new Promise((resolve) =>{
+     /*   setTimeout(() =>{
+          console.log(parseInt(categoryId))
+            resolve(products.filter(prod => prod.category === parseInt(categoryId)))
+           
+        }, 2000)
+        */
+    })
+}
+ //json.roles.MOD.forEach(function(item) {
+ //   console.log(item.join());
+//});

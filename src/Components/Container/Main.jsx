@@ -6,18 +6,40 @@ import SpinnerB from "../Spinner/SpinnerB"
 import { useParams } from "react-router-dom"
 const Main = () => {
     const [products, setProducts] = useState([])
+    const [users, setUsers] = useState([])
    
 
     useEffect(() =>{
         getProducts()
         .then(response =>{
+            
             setProducts(response)
+            
         })
         .catch(error => {
             console.error(error)
         })
 
     },[])
+
+   /* useEffect(() =>{
+        const fetchData = async () =>{
+            try{
+                //'https://api.mercadolibre.com/sites/MLA/search?q=laptop&limit=10'
+                // en la propiedad results para acceder..
+                // data.results.map
+                const response = await fetch('https://jsonplaceholder.typicode.com/users')
+                const data = await response.json();
+                setUsers(data)
+                console.log(users)
+            }
+            catch(error){
+                console.log('erro al cargar datos', error)
+             }
+            }
+            fetchData();
+    },[])
+*/
     return(
         <>
        
@@ -37,6 +59,7 @@ const Main = () => {
             </div>
         :<SpinnerB/>
         }
+      
         </>
       
     )

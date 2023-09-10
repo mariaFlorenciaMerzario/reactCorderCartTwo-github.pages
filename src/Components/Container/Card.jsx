@@ -49,12 +49,10 @@ const Card = (props) => {
   }
 
     return(
-    
       <div className="card m-1"style={{width: '300px'}}>
           <div className="card-body " id='yourAppElement'>
           <img src={require('../Assets/'+props.image)} style={{width: '150px'}}alt={props.name}/>
             <button 
-                
                 onClick={openModal}
                 data-tooltip-id="my-tooltip" 
                 data-tooltip-content="Ver más" 
@@ -78,14 +76,11 @@ const Card = (props) => {
           style={customStyles}
           contentLabel="Atención"
           ariaHideApp={false}
-        >
-          
-          {product!= null?<ItemDetail {...product}/>:''}
-         <ItemCount/><button onClick={closeModal} className='btn btn-dark'>Volver atrás</button>
+        > 
+          {product!= null?<ItemDetail{...product } stock={10}/>:''}
+         <button onClick={closeModal} className='btn btn-dark'>Volver atrás</button>
       </Modal>
-  
       </div>
-    
     )
 }
 export default Card
