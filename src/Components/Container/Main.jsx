@@ -12,8 +12,8 @@ const Main = () => {
     useEffect(() =>{
         getProducts()
         .then(response =>{
-            
-            setProducts(response)
+          
+            setProducts(JSON.parse(response))
             
         })
         .catch(error => {
