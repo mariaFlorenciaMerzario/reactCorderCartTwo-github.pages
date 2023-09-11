@@ -120,24 +120,27 @@ const promos =[
 */
  
  export function getProducts() {
-    const res = jsonFile.products
-    if (res) {
-        console.log(res, "respuesta")     
-        return Promise.resolve(res)
-    }
-    throw new Error("No se encontraron los archivos");
-
+    return new Promise((resolve, reject) => {
+        const product = jsonFile.products;
+        if (product) {
+          resolve(product);
+        } else {
+          reject("Productos no encontrado");
+        }
+      });
 }
     
 
- export const getProductById =(prodId) =>{
-     const res = jsonFile.products
-       setTimeout(() =>{
-            return Promise.resolve(res.find(prod => prod.id === prodId))
-        }, 2000)
-    
-        
- }
+export const getProductById = (prodId) => {
+    return new Promise((resolve, reject) => {
+      const product = jsonFile.products.find((prod) => prod.id === parseInt(prodId));
+      if (product) {
+        resolve(product);
+      } else {
+        reject("Producto no encontrado");
+      }
+    });
+  };
  /*
  export const getProductsByCategory =(categoryId) =>{
         const res = jsonFile.products
@@ -147,9 +150,13 @@ const promos =[
 }*/
 
 export const getProductsByCategory =(categoryId) =>{
-    const res = jsonFile.products
-        setTimeout(() =>{
-
-            return Promise.resolve(res.filter(prod => prod.category === parseInt(categoryId)))      
-        }, 2000) 
- }
+return new Promise((resolve, reject) => {
+    const product = jsonFile.products.filter((prod) => prod.category === categoryId);
+    if (product) {
+      resolve(product);
+    } else {
+      reject("Producto no encontrado");
+    }
+  });
+}
+  

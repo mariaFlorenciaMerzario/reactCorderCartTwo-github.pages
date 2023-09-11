@@ -7,15 +7,16 @@ import { useParams } from "react-router-dom"
 const Main = () => {
     const [products, setProducts] = useState([])
     const [users, setUsers] = useState([])
-   
+
 
     useEffect(() =>{
         getProducts()
-        .then(response =>{   
+        .then(response =>{  
             setProducts(response)  
+            console.log(response)
         })
-        .catch(error => {
-            console.error(error)
+            .catch(error => {
+             console.error(error)
         })
 
     },[])
@@ -39,8 +40,7 @@ const Main = () => {
     },[])
 */
     return(
-        <>
-       
+        <> 
         { products.length > 0 ?
             <div className="m-2 row d-flex flex-md-row flex-column justify-content-center">
                 {products.map((element, index) => (
