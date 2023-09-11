@@ -149,7 +149,7 @@ const promos =[
 export const getProductsByCategory =(categoryId) =>{
     const res = jsonFile.products
         setTimeout(() =>{
-          console.log(parseInt(categoryId))
+
             return Promise.resolve(res.filter(prod => prod.category === parseInt(categoryId)))      
         }, 2000) 
  }

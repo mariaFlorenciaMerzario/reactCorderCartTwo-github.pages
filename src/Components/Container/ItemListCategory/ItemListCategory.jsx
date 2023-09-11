@@ -18,7 +18,7 @@ const ItemListCategory = () => {
          category = ' Premiun'
     }
 
-    useEffect(() =>{
+   useEffect(() =>{
         getProductsByCategory(categoryId)
         .then(response =>{   
             setProducts(response)  
