@@ -30,7 +30,7 @@ const Card = (props) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [product, setProduct] = useState(null);
   
-  useEffect(()=>{
+ useEffect(()=>{
       getProductById(props.id)
       .then(response =>{
         setProduct(response)

@@ -1,13 +1,14 @@
 import Card from "../Card"
-import { getProducts, getProductsByCategory} from '../../../json'
+import { getProductsByCategory} from '../../../json'
 import { useState, useEffect } from "react"
 import SpinnerB from "../../Spinner/SpinnerB"
 import { useParams } from "react-router-dom"
 import ItemListContainer from "../../ItemListContainer/ItemListContainer"
 
+
 const ItemListCategory = () => {
-    let category =''
     const [products, setProducts] = useState([])
+    let category =''
     let {categoryId} = useParams()
     if(categoryId === '1') {
          category = ' Carne - Pollo'
@@ -16,17 +17,18 @@ const ItemListCategory = () => {
     }else{
          category = ' Premiun'
     }
+
     useEffect(() =>{
-        const asyncFunc = categoryId ? getProductsByCategory : getProducts
-        console.log(getProductsByCategory)
-        asyncFunc(categoryId)
-        .then(response =>{
-            setProducts(response)
+        getProductsByCategory(categoryId)
+        .then(response =>{   
+            setProducts(response)  
         })
         .catch(error => {
             console.error(error)
         })
-    },[categoryId])
+
+    },[])
+        
     return(
         <>
          <ItemListContainer className="my-4" greeting={'Resultados para la categoría:'+ category}/>

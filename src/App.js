@@ -23,9 +23,9 @@ function App() {
     <BrowserRouter>
     <Navbar />
       <Routes>
-        <Route path='/reactCoder.github.io/build' element={<Container />}/>
-        <Route path='/reactCoder.github.io/build/category/:categoryId' element={<ItemListCategory />}/>
-        <Route path='/reactCoder.github.io/build/category/item/:itemId' element={<Container />}/>
+        <Route path='reactCoder.github.io/build' element={<Container />}/>
+        <Route path='reactCoder.github.io/build/category/:categoryId' element={<ItemListCategory />}/>
+        <Route path='reactCoder.github.io/build/category/item/:itemId' element={<Container />}/>
         {/* <Route path='/reactCoder.github.io/build/category/:*' element={<h1>Not found</h1>}/> */}
 
       </Routes>

@@ -1,5 +1,8 @@
-// categorys: 1 (Carne y pollo) - 2 (jamon y queso y capresse) - 3 (especiales)
-const jsonFile = require('./json.json')
+//let jsonFile = require('../src/data/json.json');
+import jsonFile from '../src/data/json.json'
+console.log(jsonFile)
+
+
 /*const products =[
 {
     id: 1,
@@ -114,43 +117,39 @@ const promos =[
         }, 2000)
     })
  }
- export const getProductsByCategory =(categoryId) =>{
-    return new Promise((resolve) =>{
-        setTimeout(() =>{
-          console.log(parseInt(categoryId))
-            resolve(products.filter(prod => prod.category === parseInt(categoryId)))
-           
-        }, 2000)
-    })
- }*/
- export async function getProducts() {
-    const res = await fetch(jsonFile);
-    const json = await res.json();
-    if (res.ok) {
-     
-        return json.products
+*/
+ 
+ export function getProducts() {
+    const res = jsonFile.products
+    if (res) {
+        console.log(res, "respuesta")     
+        return Promise.resolve(res)
     }
-    throw new Error(json.message);
+    throw new Error("No se encontraron los archivos");
 
 }
-  
+    
+
  export const getProductById =(prodId) =>{
-   /* return new Promise((resolve) =>{
-        setTimeout(() =>{
-            resolve(products.find(prod => prod.id === prodId))
+     const res = jsonFile.products
+       setTimeout(() =>{
+            return Promise.resolve(res.find(prod => prod.id === prodId))
         }, 2000)
-    })*/
+    
+        
  }
+ /*
  export const getProductsByCategory =(categoryId) =>{
-    return new Promise((resolve) =>{
-     /*   setTimeout(() =>{
+        const res = jsonFile.products
+        setTimeout(() =>{
+             return Promise.resolve(res.filter(prod => prod.category === categoryId))
+         }, 2000)
+}*/
+
+export const getProductsByCategory =(categoryId) =>{
+    const res = jsonFile.products
+        setTimeout(() =>{
           console.log(parseInt(categoryId))
-            resolve(products.filter(prod => prod.category === parseInt(categoryId)))
-           
-        }, 2000)
-        */
-    })
-}
- //json.roles.MOD.forEach(function(item) {
- //   console.log(item.join());
-//});
+            return Promise.resolve(res.filter(prod => prod.category === parseInt(categoryId)))      
+        }, 2000) 
+ }

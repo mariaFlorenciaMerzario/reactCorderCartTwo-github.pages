@@ -1,6 +1,7 @@
 
 {
-   "products":[ {
+  "products":[
+    {
         "id": "1",
         "image": "argentinas.jpg",
         "name": "Empanada de Carne",
@@ -65,10 +66,4 @@
         "category": "1"
     }
 ]
-}
-
-
-    
-   
-  
-   
+}  
