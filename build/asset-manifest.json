@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/reactCoder.github.io/build/static/css/main.12e956d0.css",
-    "main.js": "/reactCoder.github.io/build/static/js/main.fe0f26a6.js",
+    "main.js": "/reactCoder.github.io/build/static/js/main.7ecc1025.js",
     "static/js/787.22d6e830.chunk.js": "/reactCoder.github.io/build/static/js/787.22d6e830.chunk.js",
     "static/media/criolla.jpg": "/reactCoder.github.io/build/static/media/criolla.bae3e5aed832af7937fe.jpg",
     "static/media/carneFrita.jpeg": "/reactCoder.github.io/build/static/media/carneFrita.fe4cea4135f3cb6b8ac3.jpeg",
@@ -18,11 +18,11 @@
     "static/media/roqueforJamon.jfif": "/reactCoder.github.io/build/static/media/roqueforJamon.a7a6d4b406bbf8d7e6a5.jfif",
     "index.html": "/reactCoder.github.io/build/index.html",
     "main.12e956d0.css.map": "/reactCoder.github.io/build/static/css/main.12e956d0.css.map",
-    "main.fe0f26a6.js.map": "/reactCoder.github.io/build/static/js/main.fe0f26a6.js.map",
+    "main.7ecc1025.js.map": "/reactCoder.github.io/build/static/js/main.7ecc1025.js.map",
     "787.22d6e830.chunk.js.map": "/reactCoder.github.io/build/static/js/787.22d6e830.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.12e956d0.css",
-    "static/js/main.fe0f26a6.js"
+    "static/js/main.7ecc1025.js"
   ]
 }
