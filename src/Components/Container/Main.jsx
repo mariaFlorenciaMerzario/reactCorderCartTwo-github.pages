@@ -6,9 +6,7 @@ import SpinnerB from "../Spinner/SpinnerB"
 import { useParams } from "react-router-dom"
 const Main = () => {
     const [products, setProducts] = useState([])
-    const [users, setUsers] = useState([])
-
-
+ 
     useEffect(() =>{
         getProducts()
         .then(response =>{  

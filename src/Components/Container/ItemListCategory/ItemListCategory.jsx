@@ -7,18 +7,22 @@ import ItemListContainer from "../../ItemListContainer/ItemListContainer"
 
 
 const ItemListCategory = () => {
+    
     const [products, setProducts] = useState([])
     let category =''
     let {categoryId} = useParams()
     if(categoryId === '1') {
          category = ' Carne - Pollo'
-    }else if(categoryId ==='2'){
-         category = ' Jamón y Queso - Capresse'
-    }else{
-         category = ' Premiun'
-    }
+        }else if(categoryId ==='2'){
+            category = ' Jamón y Queso - Capresse'
+        }else{
+            category = ' Premiun'
+        }
+    
 
+    
    useEffect(() =>{
+    setProducts('')
         getProductsByCategory(categoryId)
         .then(response =>{   
             setProducts(response)  
@@ -26,9 +30,7 @@ const ItemListCategory = () => {
         .catch(error => {
             console.error(error)
         })
-
-    },[])
-        
+    },[categoryId])    
     return(
         <>
          <ItemListContainer className="my-4" greeting={'Resultados para la categoría:'+ category}/>

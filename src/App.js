@@ -17,10 +17,12 @@ import Container from './Components/Container/Container';
 import Footer from './Components/Footer/Footer';
 import ItemListCategory from './Components/Container/ItemListCategory/ItemListCategory';
 import Navbar from './Components/Navbar/Navbar';
+import { CarProvider } from './Context/CartContext';
 function App() {
   return (
     <div className="App">
     <BrowserRouter>
+    <CarProvider>
     <Navbar />
       <Routes>
         <Route path='reactCoder.github.io/build' element={<Container />}/>
@@ -29,6 +31,7 @@ function App() {
         {/* <Route path='/reactCoder.github.io/build/category/:*' element={<h1>Not found</h1>}/> */}
 
       </Routes>
+      </CarProvider>
     </BrowserRouter>
   
     <Footer />
