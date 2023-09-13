@@ -68,8 +68,7 @@ const Card = (props) => {
             <p>${props.price}.-</p> 
            <div className='d-flex justify-content-center'>
       </div>
-          <ItemCount initial={0} stock={10} onAdd={(quantity) =>console.log('Cantidad agregada' , quantity)}/>    
-        </div>
+               </div>
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={closeModal}

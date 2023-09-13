@@ -5,16 +5,16 @@ import ItemCount from './ItemCount/ItemCount'
 import CartContext from '../../Context/CartContext'
 
 const ItemDetail = ({id, name, price, description, image, category , stock}) => {
-    const {quantityAdded, setQuantityAdded} = useState(0)
+    const [quantityAdded, setQuantityAdded] = useState(0)
     const {addItem} = useContext(CartContext)
     
     const handleOnAdd = (quantity) =>{
-            const item = {
-                id, name, price 
-            }
-            setQuantityAdded(quantity)
-            addItem(item, quantity)
+        const item = {
+            id, name, price 
         }
+        setQuantityAdded(quantity)
+        addItem(item, quantity)
+    }
     return(
      <>
         <div className='d-flex'>
@@ -26,7 +26,7 @@ const ItemDetail = ({id, name, price, description, image, category , stock}) => 
             <p>Precio: ${price}.-</p>
             {
                 quantityAdded >0 ?(
-                    <Link to= '/cart' className='Option'>Terminar la compra</Link>
+                    <Link to= '/cart' className='btn btn-success'>Terminar la compra</Link>
                 ):(
                     <ItemCount initial={1} stock={stock} onAdd={handleOnAdd}/>
                 )
