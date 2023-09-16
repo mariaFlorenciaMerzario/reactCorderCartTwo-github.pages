@@ -47,7 +47,7 @@
         "name": "Empanada Salteña",
         "price": "500",
         "description":"Un producto elaborado a base de Carne, huevo, cebolla y aceitunas",
-        "category": 1
+        "category": "1"
     },
     {
         "id":7,
