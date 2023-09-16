@@ -2,7 +2,7 @@
 {
   "products":[
     {
-        "id": "1",
+        "id": 1,
         "image": "argentinas.jpg",
         "name": "Empanada de Carne",
         "price": "500",
@@ -58,7 +58,7 @@
         "category": "3"
     },
     {
-        "id": "8",
+        "id":8,
         "image": "argentinas.jpg",
         "name": "Empanada de Carne Picante",
         "price": "500",
