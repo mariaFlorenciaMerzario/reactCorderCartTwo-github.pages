@@ -1,5 +1,6 @@
 import Button from "../button/Button"
 import { useState } from "react"
+import { CartContext} from "../../../Context/CartContext"
 const ItemCount = ({stock, initial, onAdd}) => {
   
     const [quantity, setQuantity]= useState(initial)
@@ -22,7 +23,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
             <span className="m-4">{quantity}</span>
             <Button class='btn btn-light' id="btnAddQuantity" value='+1' onClick={increment}/>
         </div>
-            <Button onClick={()=> onAdd(quantity)} disabled={!stock} class='btn btn-warning m-2' value='Agregar al Carrito'/>
+            <Button onClick={()=> onAdd(quantity)} quantty={quantity} disabled={!stock} class='btn btn-warning m-2' value='Agregar al Carrito'/>
        </>
     )
 }
