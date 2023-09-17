@@ -13,8 +13,9 @@ export const CarProvider = ({children}) =>{
     const addItem = (item, quantity)=>{
         if(!isInCart(item.id)){
             setCart(prev =>[...prev,{...item, quantity}])
+            setTotalQuantity(quantity + totalQuantity)
         }else{
-            console.log('El producto ya se encuentra en el carro')
+            console.log('El producto ya se encuentra en el carrito')
         }
     }
     const removeItem = (itemId) =>{
@@ -22,7 +23,7 @@ export const CarProvider = ({children}) =>{
     }
     
     const setQuantityAdded = (quantity) =>{
-      setTotalQuantity(quantity + totalQuantity)
+        setTotalQuantity(quantity + totalQuantity)
     }
 
     const clearCart = () =>{
@@ -38,4 +39,3 @@ export const CarProvider = ({children}) =>{
         </CartContext.Provider>
     )
 }
-export default CarProvider
