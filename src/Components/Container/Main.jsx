@@ -8,7 +8,6 @@ const Main = () => {
     const [products, setProducts] = useState([])
     const [term, setTerm] = useState("");
    
-
       const handleSearch = (event) => {
         setTerm(event.target.value);
         };

@@ -14,6 +14,8 @@ export const CarProvider = ({children}) =>{
         if(!isInCart(item.id)){
             setCart(prev =>[...prev,{...item, quantity}])
             setTotalQuantity(quantity + totalQuantity)
+            console.log('cart ')
+            console.log(cart)
         }else{
             console.log('El producto ya se encuentra en el carrito')
         }

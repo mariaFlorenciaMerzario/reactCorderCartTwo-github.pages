@@ -3,7 +3,7 @@ import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import "bootstrap/js/dist/dropdown.js";
-
+import Cart from './Components/Cart';
 
 import 'jquery/dist/jquery.min.js'
 
@@ -25,10 +25,11 @@ function App() {
     <CarProvider>
     <Navbar />
       <Routes>
-        <Route path='reactCoder.github.io/build' element={<Container />}/>
-        <Route path='reactCoder.github.io/build/category/:categoryId' element={<ItemListCategory />}/>
-        <Route path='reactCoder.github.io/build/category/item/:itemId' element={<Container />}/>
-        {/* <Route path='/reactCoder.github.io/build/category/:*' element={<h1>Not found</h1>}/> */}
+        <Route path='/reactCoder.github.io/build' element={<Container />}/>
+        <Route path='/reactCoder.github.io/build/category/:categoryId' element={<ItemListCategory />}/>
+        <Route path='/reactCoder.github.io/build/category/item/:itemId' element={<Container />}/>
+        <Route path='/reactCoder.github.io/build/cart' element={<Cart />}/>
+        <Route path='/reactCoder.github.io/build/:*' element={<h1>Not found</h1>}/> 
 
       </Routes>
       </CarProvider>

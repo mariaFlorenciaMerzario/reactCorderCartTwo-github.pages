@@ -23,11 +23,11 @@ const ItemDetail = ({id, name, price, description, image, quantity , stock}) => 
             </div>
             <div className='m-4'>
             <p>{description}</p>
-            <p>QUANTITY{quantity}</p>
+            <p>{quantity}</p>
             <p>Precio: ${price}.-</p>
             {
                 quantityAdded >0 ?(
-                    <Link to= '/cart' className='btn btn-success'>Terminar la compra</Link>
+                    <Link to={'/reactCoder.github.io/build/cart'} className='btn btn-success'>Terminar la compra</Link>
                 ):(
                     <ItemCount initial={1} stock={stock} onAdd={handleOnAdd}/>
                 )
