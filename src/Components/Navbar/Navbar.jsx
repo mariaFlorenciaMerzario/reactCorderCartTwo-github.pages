@@ -25,7 +25,7 @@ const Navbar = () => {
 
                     </div>
 
-                        <Link to={'/cart'}>
+                        <Link to={'/reactCoder.github.io/build/cart'}>
                             <CartWidget quantity="1" textWite="text-white"/>
                         </Link>
                         

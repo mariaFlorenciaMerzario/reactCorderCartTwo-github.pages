@@ -14,14 +14,21 @@ export const CarProvider = ({children}) =>{
         if(!isInCart(item.id)){
             setCart(prev =>[...prev,{...item, quantity}])
             setTotalQuantity(quantity + totalQuantity)
-            console.log('cart ')
-            console.log(cart)
-        }else{
+       }else{
             console.log('El producto ya se encuentra en el carrito')
         }
     }
     const removeItem = (itemId) =>{
+        let total=0
         const cartUpdated = cart.filter(prod =>prod.id !== itemId)
+        setCart(cartUpdated)
+        cartUpdated.map(function(prod) {
+            
+            total = total + parseInt(prod.quantity)
+          });
+          console.log('totallllllllllll cart')
+          console.log(total)
+      setTotalQuantity(total)
     }
     
     const setQuantityAdded = (quantity) =>{
