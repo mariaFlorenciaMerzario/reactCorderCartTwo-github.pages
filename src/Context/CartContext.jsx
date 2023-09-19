@@ -43,15 +43,18 @@ export const CarProvider = ({children}) =>{
     }
 
     const editCart =(itemId, quantityData) =>{
-     
+        
         cart2 = cart.filter((element) => {
             if(element.id === itemId){   
               element.quantity = quantityData
              setCart(cart2)
+             console.log('cart2')
+             console.log(cart)
             }
+         
+      // cart.filter(el => el.id !== itemId)
         })
-     }
-    
+    }
 
     return(
         <CartContext.Provider value={{cart, addItem, removeItem, clearCart, setQuantityAdded, editCart, totalQuantity}}>
