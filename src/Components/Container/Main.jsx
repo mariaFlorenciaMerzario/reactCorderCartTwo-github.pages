@@ -5,6 +5,7 @@ import SpinnerB from "../Spinner/SpinnerB"
 
 import { useParams } from "react-router-dom"
 const Main = () => {
+    
     const [products, setProducts] = useState([])
     const [term, setTerm] = useState("");
    
@@ -52,9 +53,6 @@ const Main = () => {
 */
     return(
         <> 
-        {/* <InputSearch
-            placeholder="Busqueda"
-            name="term" */}
             <form>
                 
             <input
@@ -84,8 +82,8 @@ const Main = () => {
             </div>
         :<SpinnerB/>
         }
-        </>
-      
+       
+    </>
     )
 }
 export default Main
