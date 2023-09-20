@@ -3,17 +3,16 @@ import { CartContext} from "../Context/CartContext"
 import { useState, useEffect } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
-import Button from './Container/button/Button'
-import ItemCount from './Container/ItemCount/ItemCount'
 import ItemModif from './Container/ItemCount/ItemMod'
+
 const Cart = (onAdd) => {
     let total=0
     const {cart}= useContext(CartContext)
     const {removeItem}= useContext(CartContext)
 
-    
+   
   return (
-    <>
+  <>
 
 <table className="table">
   <thead className="thead-light">

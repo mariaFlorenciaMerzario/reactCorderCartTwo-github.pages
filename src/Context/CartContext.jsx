@@ -47,13 +47,13 @@ export const CarProvider = ({children}) =>{
         cart2 = cart.filter((element) => {
             if(element.id === itemId){   
               element.quantity = quantityData
-             setCart(cart2)
-             console.log('cart2')
-             console.log(cart)
             }
-         
-      // cart.filter(el => el.id !== itemId)
+            
+            // cart.filter(el => el.id !== itemId)
         })
+            setCart(cart2)
+            console.log('cart2')
+            console.log(cart)
     }
 
     return(
