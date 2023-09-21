@@ -11,26 +11,32 @@ export const CarProvider = ({children}) =>{
      let cart2 = []
 
     const addItem = (item, quantity)=>{
+        console.log('isInCart')
+        console.log(isInCart(item))
         if(!isInCart(item.id)){
             setCart(prev =>[...prev,{...item, quantity}])
             setTotalQuantity(quantity + totalQuantity)
        }else{
-            console.log('El producto ya se encuentra en el carrito')
+            alert(`El producto ${item.name} ya se encuentra en el carrito`)
         }
     }
     const removeItem = (itemId) =>{
         let total=0
         const cartUpdated = cart.filter(prod =>prod.id !== itemId)
-        setCart(cartUpdated)
-        cartUpdated.map(function(prod) {
-            
-            total = total + parseInt(prod.quantity)
-          });
+        console.log('cartUpdated')
+        console.log(cartUpdated)
+        if(cartUpdated.length >0){
+            setCart(cartUpdated)
+            cartUpdated.map(function(prod) {   
+                total = total + parseInt(prod.quantity)
+            });
+        }else{
+            setCart([])
+        }
        
       setTotalQuantity(total)
     }
     
-
     const setQuantityAdded = (quantity) =>{
         setTotalQuantity(quantity + totalQuantity)
     }
@@ -39,25 +45,27 @@ export const CarProvider = ({children}) =>{
         setCart([])
     }
     const isInCart =(itemId) =>{
-        return cart.some(prod => prod.id === itemId)
+        if (!Array.isArray(cart)) {
+            throw new Error('cart no es un array');
+          }
+        
+          return cart.some(prod => prod.id === itemId);
     }
 
-    const editCart =(itemId, quantityData) =>{
-        
-        cart2 = cart.filter((element) => {
-            if(element.id === itemId){   
-              element.quantity = quantityData
+    const editCart = (itemId, quantityData) => {
+        const updatedCart = cart.map((element) => {
+            if (element.id === itemId) {
+                return { ...element, quantity: quantityData }
+               
+            } else {
+                return element
             }
-            
-            // cart.filter(el => el.id !== itemId)
         })
-            setCart(cart2)
-            console.log('cart2')
-            console.log(cart)
+        setCart(updatedCart)
     }
 
     return(
-        <CartContext.Provider value={{cart, addItem, removeItem, clearCart, setQuantityAdded, editCart, totalQuantity}}>
+        <CartContext.Provider value={{cart, addItem, removeItem, clearCart, setQuantityAdded, editCart,setTotalQuantity, totalQuantity}}>
             {children}
         </CartContext.Provider>
     )

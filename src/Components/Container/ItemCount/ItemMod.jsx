@@ -6,18 +6,21 @@ import React, { useContext } from 'react'
 const ItemModif = ({stock, initial, onAdd, quantityItem, id}) => {
 
     const {editCart}= useContext(CartContext)
+    const {setTotalQuantity, totalQuantity}= useContext(CartContext)
     let [quantity, setQuantity]= useState(quantityItem)
     let increment =()=>{
-            setQuantity(quantity++)
-            editCart(id, quantity)
+            setQuantity(quantity+1)
+            editCart(id, quantity +1)
+            setTotalQuantity(totalQuantity +1)
             console.log("se edito el cart cantidad ++")
             
     }
 
     let decrement =()=>{
         if(quantity > 0){ 
-            setQuantity(quantity--)
-            editCart(id, quantity)
+            setQuantity(quantity-1)
+            editCart(id, quantity -1)
+            setTotalQuantity(totalQuantity -1)
             console.log("se edito el cart cantidad --")
         }
     }

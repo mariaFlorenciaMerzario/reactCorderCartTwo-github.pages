@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import ItemModif from './Container/ItemCount/ItemMod'
+import RegreHome from './Container/RegreHome'
 
 const Cart = (onAdd) => {
     let total=0
@@ -13,9 +14,9 @@ const Cart = (onAdd) => {
    
   return (
   <>
-
 <table className="table">
   <thead className="thead-light">
+{cart.length != 0?
     <tr>
     <th scope="col">ID</th>
       <th scope="col">Nombre</th>
@@ -24,9 +25,13 @@ const Cart = (onAdd) => {
       <th scope="col">Subtotal</th>
       <th scope="col">Eliminar</th>
     </tr>
+:''}
   </thead>
   <tbody>
-      {cart?.map((item, index) => (
+    {console.log('cart.length')}
+    {console.log(cart.length)}
+     {cart.length >0?
+      cart.map((item, index) => (
      <tr key={index}>
         <td className="d-none" ></td>
         <td>{item.id}</td>
@@ -37,13 +42,17 @@ const Cart = (onAdd) => {
         <td className='d-none'>{total = item.price * item.quantity + total} </td>
         <td><button className="border-0" onClick={()=>removeItem(item.id)}><FontAwesomeIcon className="text-danger" icon={faTrashCan}/></button></td>
     </tr>
-      ))}
-    
-  </tbody>
+    ))
+    :<RegreHome/>
+  }
+    </tbody>
 </table>
+{cart.length != 0?
     <p className='h3'>Total: ${total}</p>
+   :''}
     </>
   )
+  
 }
 
 export default Cart
