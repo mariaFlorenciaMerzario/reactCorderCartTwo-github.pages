@@ -1,6 +1,5 @@
 import React from 'react'
 import ItemDetail from './ItemDetail'
-import { NavLink } from 'react-router-dom'
 
 const Products = ({product}) => {
   return (

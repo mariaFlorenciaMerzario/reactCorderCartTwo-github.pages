@@ -4,10 +4,11 @@ import { Link, NavLink } from 'react-router-dom'
 import ItemCount from './ItemCount/ItemCount'
 import {CartContext} from '../../Context/CartContext'
 
+
 const ItemDetail = ({id, name, price, description, image, quantity , stock}) => {
     const [quantityAdded, setQuantityAdded] = useState(0)
     const {addItem}= useContext(CartContext)
-  
+    //     
     const handleOnAdd = (quantity) =>{
         const item = {
             id, name, price 
