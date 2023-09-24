@@ -26,9 +26,23 @@ export const getProductById = (prodId) => {
     });
   };
 
-export const getProductsByCategory =(categoryId) =>{
+export const getProductsByCategory =(categoryName) =>{
+  console.log('en el json')
+  console.log(categoryName)
+  let categoryId=0
+  if(categoryName === 'CarnePollo'){
+    console.log(1)
+     categoryId = 1
+  }else if(categoryName === "JamonCapresse"){
+     categoryId = 2
+     console.log(2)
+  }else{
+     categoryId = 3
+     console.log(3)
+  }
 return new Promise((resolve, reject) => {
     const product = jsonFile.products.filter((prod) => prod.category === categoryId);
+    console.log(product)
     if (product) {
      setTimeout(() =>{
       resolve(product);

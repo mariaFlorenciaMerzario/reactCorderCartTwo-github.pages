@@ -19,9 +19,9 @@ const Navbar = () => {
                     <div className="navbar-nav m-auto">
 
                         <NavLink to={'/reactCoder.github.io/build'} className="btn btn-warning">Nuestros Productos</NavLink>
-                        <NavLink to={'/reactCoder.github.io/build/category/1'} className="btn btn-dark mx-3">Carne y Pollo</NavLink>
-                        <NavLink to={'/reactCoder.github.io/build/category/2'} className="btn btn-dark mx-3">Jamón y Queso - Capresse</NavLink>
-                        <NavLink to={'/reactCoder.github.io/build/category/3'} className="btn btn-dark">Premiun</NavLink>
+                        <NavLink to={'/reactCoder.github.io/build/category/CarnePollo'} className="btn btn-dark mx-3">Carne y Pollo</NavLink>
+                        <NavLink to={'/reactCoder.github.io/build/category/JamonCapresse'} className="btn btn-dark mx-3">Jamón y Queso - Capresse</NavLink>
+                        <NavLink to={'/reactCoder.github.io/build/category/Premiun'} className="btn btn-dark">Premiun</NavLink>
 
                     </div>
 

@@ -5,32 +5,31 @@ import SpinnerB from "../../Spinner/SpinnerB"
 import { useParams } from "react-router-dom"
 import ItemListContainer from "../../ItemListContainer/ItemListContainer"
 
-
 const ItemListCategory = () => {
     
     const [products, setProducts] = useState([])
     let category =''
-    let {categoryId} = useParams()
-    if(categoryId === '1') {
+    let {categoryName} = useParams()
+    console.log(categoryName)
+     if(categoryName === 'CarnePollo') {
+       
          category = ' Carne - Pollo'
-        }else if(categoryId ==='2'){
+        }else if(categoryName ==='JamonCapresse'){
             category = ' Jamón y Queso - Capresse'
         }else{
-            category = ' Premiun'
+            category = 'Premiun'
         }
-    
-
     
    useEffect(() =>{
     setProducts('')
-        getProductsByCategory(categoryId)
+        getProductsByCategory(categoryName)
         .then(response =>{   
             setProducts(response)  
         })
         .catch(error => {
             console.error(error)
         })
-    },[categoryId])    
+    },[categoryName])    
     return(
         <>
          <ItemListContainer className="my-4" greeting={'Resultados para la categoría:'+ category}/>
