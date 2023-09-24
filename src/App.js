@@ -18,6 +18,7 @@ import Footer from './Components/Footer/Footer';
 import ItemListCategory from './Components/Container/ItemListCategory/ItemListCategory';
 import Navbar from './Components/Navbar/Navbar';
 import { CarProvider } from './Context/CartContext';
+import Checkout from './Components/Checkout/Checkout';
 function App() {
   return (
     <div className="App">
@@ -29,6 +30,7 @@ function App() {
         <Route path='/reactCoder.github.io/build/category/:categoryId' element={<ItemListCategory />}/>
         <Route path='/reactCoder.github.io/build/category/item/:itemId' element={<Container />}/>
         <Route path='/reactCoder.github.io/build/cart' element={<Cart />}/>
+        <Route path='/reactCoder.github.io/build/checkout' element={<Checkout/>}/> 
         <Route path='/reactCoder.github.io/build/:*' element={<h1>Not found</h1>}/> 
 
       </Routes>

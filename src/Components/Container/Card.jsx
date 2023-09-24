@@ -10,19 +10,7 @@ import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip'
 import { getProductById } from '../../json';
 import ItemDetail from './ItemDetail';
-
-const customStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)'
-  },
-};
-
-Modal.setAppElement(document.querySelector('.card'));
+import Products from './Products';
 
 
 const Card = (props) => {
@@ -41,19 +29,22 @@ const Card = (props) => {
   }, [])
 
   function openModal() {
-    setIsOpen(true);
+    console.log(product)
+    if(product != null){
+      setIsOpen(true);
+      console.log('modalIsOpen despues del setIsOpen')
+      console.log(modalIsOpen)
+    }
   }
-
   function closeModal() {
     setIsOpen(false);
   }
-
     return(
       <div className="card m-1"style={{width: '300px'}}>
           <div className="card-body " id='yourAppElement'>
           <img src={require('../Assets/'+props.image)} style={{width: '150px'}}alt={props.name}/>
             <button 
-                onClick={openModal}
+                onClick={()=>{openModal()}}
                 data-tooltip-id="my-tooltip" 
                 data-tooltip-content="Ver más" 
                 className='verMas'>
@@ -62,24 +53,16 @@ const Card = (props) => {
           <Tooltip 
             id="my-tooltip" 
             effect="float"
-          className='tooltip'
+            className='tooltip'
           />
             <p className="h4">{props.name} </p > 
             <p>${props.price}.-</p> 
            <div className='d-flex justify-content-center'>
       </div>
-               </div>
-        <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
-          style={customStyles}
-          contentLabel="Atención"
-          ariaHideApp={false}
-        > 
-          {product!= null?<ItemDetail{...product } stock={10}/>:''}
-         <button onClick={closeModal} className='btn btn-dark'>Volver atrás</button>
-      </Modal>
-      </div>
+    </div>
+        
+      { modalIsOpen === true?<Products{...product } stock={10}/>:''}
+  </div>
     )
 }
 export default Card
