@@ -16,7 +16,6 @@ import { useParams } from "react-router-dom"
 
 const Card = (props) => {
   let {productId} = useParams()
-  let subtitle;
   const [modalIsOpen, setIsOpen] = useState(false);
   const [product, setProduct] = useState(null);
   
@@ -62,9 +61,11 @@ const Card = (props) => {
            <div className='d-flex justify-content-center'>
       </div>
     </div>
-        
-      {/* { modalIsOpen === true? <ItemDetail{...product } stock={10}/>:''} */}
-     <NavLink to={'/reactCoder.github.io/build/itemDetail/${...product.id}'} className="btn btn-dark mx-3">Ver más</NavLink>
+   
+      <button className='btn btn-dark w-75 m-auto my-3' onClick={() => openModal}>Ver mas</button>
+        {modalIsOpen && <ItemDetail{...product } stock={10}/>}
+     {/* <NavLink to={`/reactCoder.github.io/build/itemDetail/${product}`} className="btn btn-dark mx-3">Ver más</NavLink> */}
+     {/* {<ItemDetail{...product } stock={10}/>} */}
   </div>
     )
 }

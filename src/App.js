@@ -32,7 +32,7 @@ function App() {
         <Route path='/reactCoder.github.io/build/category/item/:itemId' element={<Container />}/>
         <Route path='/reactCoder.github.io/build/cart' element={<Cart />}/>
         <Route path='/reactCoder.github.io/build/checkout' element={<Checkout/>}/> 
-        <Route path='/reactCoder.github.io/build/itemDetail/:id' element={<ItemDetail/>}/> 
+        <Route path='/reactCoder.github.io/build/itemDetail/:productId' element={<ItemDetail/>}/> 
         <Route path='/reactCoder.github.io/build/:*' element={<h1>Not found</h1>}/> 
 
       </Routes>
