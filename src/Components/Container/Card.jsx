@@ -12,15 +12,15 @@ import { getProductById } from '../../json';
 import ItemDetail from './ItemDetail';
 import { NavLink } from 'react-router-dom';
 
-import { useParams } from "react-router-dom"
 
 const Card = (props) => {
-  let {productId} = useParams()
   const [modalIsOpen, setIsOpen] = useState(false);
   const [product, setProduct] = useState(null);
   
  useEffect(()=>{
-      getProductById(productId)
+  console.log('params')
+  console.log(props.id)
+      getProductById(props.id)
       .then(response =>{
         setProduct(response)
       })
@@ -30,6 +30,7 @@ const Card = (props) => {
   }, [])
 
   function openModal() {
+    console.log('product')
     console.log(product)
     if(product != null){
       setIsOpen(true);
@@ -62,7 +63,7 @@ const Card = (props) => {
       </div>
     </div>
    
-      <button className='btn btn-dark w-75 m-auto my-3' onClick={() => openModal}>Ver mas</button>
+      <button className='btn btn-dark w-75 m-auto my-3' onClick={() => openModal()}>Ver mas</button>
         {modalIsOpen && <ItemDetail{...product } stock={10}/>}
      {/* <NavLink to={`/reactCoder.github.io/build/itemDetail/${product}`} className="btn btn-dark mx-3">Ver más</NavLink> */}
      {/* {<ItemDetail{...product } stock={10}/>} */}
