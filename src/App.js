@@ -21,11 +21,13 @@ import { CarProvider } from './Context/CartContext';
 import Checkout from './Components/Checkout/Checkout';
 import ItemDetail from './Components/Container/ItemDetail';
 import ProductList from './Components/Container/Products';
+import { OrderProvider } from './Context/OrderContext';
 function App() {
   return (
     <div className="App">
     <BrowserRouter>
     <CarProvider>
+    <OrderProvider>
     <Navbar />
       <Routes>
         <Route path='/reactCoder.github.io/build' element={<Container />}/>
@@ -37,6 +39,7 @@ function App() {
         <Route path='/reactCoder.github.io/build/:*' element={<h1>Not found</h1>}/> 
 
       </Routes>
+      </OrderProvider>
       </CarProvider>
     </BrowserRouter>
   

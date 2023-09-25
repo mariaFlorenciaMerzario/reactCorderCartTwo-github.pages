@@ -5,9 +5,8 @@ import { OrderContext} from '../../Context/OrderContext'
 import { useContext } from 'react';
 import { event } from 'jquery';
 
-const CheckoutForm = ({onConfirm}) => {
+const CheckoutForm = ({}) => {
     const {addOrder}= useContext(OrderContext)
-
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [ws, setWs] = useState('')
@@ -45,7 +44,7 @@ const CheckoutForm = ({onConfirm}) => {
                 setResponseName('Caracter inválido')
               } else {
                 // Si pasamos todas la validaciones anteriores, entonces el input es valido
-                setResponseName('Caracter válido')
+                setResponseName('')
                 setBoolean(true)
                 setName(inputName)
               }
@@ -75,7 +74,7 @@ const CheckoutForm = ({onConfirm}) => {
               }else{
                   setEmail(inputEmail)
                   setBoolean(true)
-                  setResponseEmail('Email correcto')
+                  setResponseEmail('')
                 }
               }
             }
@@ -104,7 +103,7 @@ const CheckoutForm = ({onConfirm}) => {
             if(inputWs.length === 11){
               setWs(inputWs)
               setBoolean(true)
-              setResponseWs('WathSapp correcto')
+              setResponseWs('')
             }else{
               setResponseWs('El campo debe contener un máximo de 11 caracteres')
               setBoolean(false)
@@ -116,7 +115,8 @@ const CheckoutForm = ({onConfirm}) => {
 
     return (
         <div className='d-flex flex-column align-self-baseline'>
-            <form className="form-inline w-50 m-4 " id="searchSelected">
+          
+            <form onSubmit={(e) => handleConfirm(e)} className="form-inline w-50 m-4 " id="searchSelected"  >
                 <h2>Orden de pedido</h2>
                 <input
                     className="form-control mr-sm-2 w-75 mx-4 my-2" type="text"
@@ -127,7 +127,7 @@ const CheckoutForm = ({onConfirm}) => {
                     onChange={(event) => validarTxt(event)} 
                 >
                 </input>
-                {responseName.length >0?<input className="form-control mr-sm-2 w-75 mx-4 inputRed" type="text" value={responseName}/>: ''}
+                <p className={ responseName.length >0 ? 'mr-sm-2 w-75 mx-4 inputRed' : 'mr-sm-2 w-75 mx-4'}>{responseName}</p>
               
                <input
                     className="form-control mr-sm-2 w-75 mx-4 my-2" type="text"
@@ -138,7 +138,7 @@ const CheckoutForm = ({onConfirm}) => {
                     onChange={(event) => validarEmail(event)} 
                 >
                 </input>
-                {responseEmail.length >0?<input className="form-control mr-sm-2 w-75 mx-4 inputRed" type="text" value={responseEmail}/>: ''}
+                <p  className={ responseEmail.length >0 ? 'mr-sm-2 w-75 mx-4 inputRed' : ' mr-sm-2 w-75 mx-4'}>{responseEmail}</p>
 
 
                 <input
@@ -147,12 +147,12 @@ const CheckoutForm = ({onConfirm}) => {
                     id="inputWhatsapp"
                     name='ws'
                     value={ws}
-                    onChange={validarNumber}
+                    onChange={(event) => validarNumber(event)} 
                 >
                 </input>
-                {responseWs.length >0?<input className="form-control mr-sm-2 w-75 mx-4 inputRed" type="text" value={responseWs}/>: ''}
+                <p  className={ responseWs.length >0 ? 'mr-sm-2 w-75 mx-4 inputRed' : 'mr-sm-2 w-75 mx-4'}>{responseWs}</p>
 
-                {boolean === true?<button type="submit" onSubmit={handleConfirm(event)} className="btn btn-success m-3">Confirmar</button>:
+                {boolean === true?<button type="submit" className="btn btn-success m-3">Confirmar</button>:
                 <button type="submit" className="disabled btn btn-dark">Confirmar</button>}
             </form>
         </div>
