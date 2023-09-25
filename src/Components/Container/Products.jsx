@@ -3,7 +3,6 @@ import ItemDetail from './ItemDetail'
 import { useEffect, useState } from 'react';
 
 import { getProductById } from '../../json';
-import Products from './Products';
 import { useParams } from "react-router-dom"
 import { Spinner } from 'react-bootstrap';
 const ProductList = () => {

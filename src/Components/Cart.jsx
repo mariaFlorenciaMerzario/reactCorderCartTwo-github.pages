@@ -6,6 +6,7 @@ import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import ItemModif from './Container/ItemCount/ItemMod'
 import RegreHome from './Container/RegreHome'
 import { NavLink } from 'react-router-dom'
+
 const Cart = (onAdd) => {
     let total=0
     const {cart}= useContext(CartContext)

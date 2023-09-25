@@ -1,24 +1,30 @@
-import React, { useState } from 'react'
 import './Checkout.css';
+import React, { useState } from 'react'
+import { OrderContext} from '../../Context/OrderContext'
 
+import { useContext } from 'react';
+import { event } from 'jquery';
 
 const CheckoutForm = ({onConfirm}) => {
+    const {addOrder}= useContext(OrderContext)
+
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [ws, setWs] = useState('')
     const [responseName, setResponseName] = useState('')
     const [responseEmail, setResponseEmail] = useState('')
     const [responseWs, setResponseWs] = useState('')
-
-
+    const [boolean, setBoolean] = useState(false)
+    
     const handleConfirm = (event) =>{
-        event.preventDefault()
+        event.preventDefault();
 
         const userData = {
             name, ws, email
         }
-        onConfirm(userData)
-        console.log(onConfirm)
+        console.log('hola')
+        addOrder(userData)
+       
     }
 
     const validarTxt = (event) =>{
@@ -39,7 +45,8 @@ const CheckoutForm = ({onConfirm}) => {
                 setResponseName('Caracter inválido')
               } else {
                 // Si pasamos todas la validaciones anteriores, entonces el input es valido
-                setResponseName(true)
+                setResponseName('Caracter válido')
+                setBoolean(true)
                 setName(inputName)
               }
             }
@@ -67,7 +74,7 @@ const CheckoutForm = ({onConfirm}) => {
                 setResponseEmail('No es un email')
               }else{
                   setEmail(inputEmail)
-                  setResponseEmail(true)
+                  setBoolean(true)
                   setResponseEmail('Email correcto')
                 }
               }
@@ -76,6 +83,35 @@ const CheckoutForm = ({onConfirm}) => {
     }
 
     const validarNumber = (event) =>{
+      const inputWs= event.target.value;
+      if(inputWs === '') { 
+        setResponseWs('El campo no puede estar vacío')
+      } else {
+
+        // Segunda validacion, si input es mayor que 35
+        if(inputWs.length > 35) { 
+          setResponseWs('El campo no puede tener mas de 35 caracteres')
+        } else {
+            setWs(inputWs)
+          // Tercera validacion, si input contiene caracteres diferentes a los permitidos
+          let reg = /^[0-9]*$/;
+          if (!reg.test(inputWs)){
+          // Si queremos agregar letras acentuadas y/o letra ñ debemos usar
+          // codigos de Unicode (ejemplo: Ñ: \u00D1  ñ: \u00F1)
+            setResponseWs('No es un valor numérico')
+          }else{
+            setResponseWs('Faltan ingresar algunos valores mas')
+            if(inputWs.length === 11){
+              setWs(inputWs)
+              setBoolean(true)
+              setResponseWs('WathSapp correcto')
+            }else{
+              setResponseWs('El campo debe contener un máximo de 11 caracteres')
+              setBoolean(false)
+            }
+            }
+          }
+        }
     }
 
     return (
@@ -83,7 +119,7 @@ const CheckoutForm = ({onConfirm}) => {
             <form className="form-inline w-50 m-4 " id="searchSelected">
                 <h2>Orden de pedido</h2>
                 <input
-                    className="form-control mr-sm-2 w-75 mx-4" type="text"
+                    className="form-control mr-sm-2 w-75 mx-4 my-2" type="text"
                     placeholder=" Ingresa tu nombre"
                     id="inputName"
                     name='name'
@@ -94,7 +130,7 @@ const CheckoutForm = ({onConfirm}) => {
                 {responseName.length >0?<input className="form-control mr-sm-2 w-75 mx-4 inputRed" type="text" value={responseName}/>: ''}
               
                <input
-                    className="form-control mr-sm-2 w-75 mx-4" type="text"
+                    className="form-control mr-sm-2 w-75 mx-4 my-2" type="text"
                     placeholder=" Ingresa tu email"
                     id="inputEmail"
                     name='email'
@@ -106,7 +142,7 @@ const CheckoutForm = ({onConfirm}) => {
 
 
                 <input
-                    className="form-control mr-sm-2 w-75 m-4" type="text"
+                    className="form-control mr-sm-2 w-75 mx-4 my-2" type="text"
                     placeholder=" Ingresa tu whatsapp"
                     id="inputWhatsapp"
                     name='ws'
@@ -114,8 +150,10 @@ const CheckoutForm = ({onConfirm}) => {
                     onChange={validarNumber}
                 >
                 </input>
+                {responseWs.length >0?<input className="form-control mr-sm-2 w-75 mx-4 inputRed" type="text" value={responseWs}/>: ''}
 
-                <button type="submit" onSubmit={handleConfirm} className="btn btn-success">Confirmar</button>
+                {boolean === true?<button type="submit" onSubmit={handleConfirm(event)} className="btn btn-success m-3">Confirmar</button>:
+                <button type="submit" className="disabled btn btn-dark">Confirmar</button>}
             </form>
         </div>
     )

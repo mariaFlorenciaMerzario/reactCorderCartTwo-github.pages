@@ -11,8 +11,7 @@ export const CarProvider = ({children}) =>{
      let cart2 = []
 
     const addItem = (item, quantity)=>{
-        console.log('isInCart')
-        console.log(isInCart(item))
+       
         if(!isInCart(item.id)){
             setCart(prev =>[...prev,{...item, quantity}])
             setTotalQuantity(quantity + totalQuantity)
