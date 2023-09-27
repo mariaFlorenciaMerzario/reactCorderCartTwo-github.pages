@@ -3,9 +3,10 @@ import { getProducts} from '../../json'
 import { useState, useEffect } from "react"
 import SpinnerB from "../Spinner/SpinnerB"
 
+
 import { useParams } from "react-router-dom"
+
 const Main = () => {
-    
     const [products, setProducts] = useState([])
     const [term, setTerm] = useState("");
    

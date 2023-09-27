@@ -8,18 +8,19 @@ export const OrderContext = createContext({
 
 export const OrderProvider = ({children}) =>{
     const [order, setorder] = useState([])
-    const [totalQuantity, setTotalQuantity] = useState(0)
     const {cart}= useContext(CartContext)
 
-
     const addOrder = (userData)=>{
-      
-        let orderNro = Math.random()
-        console.log(orderNro)
-        console.log('contenido del cart')
-        console.log(cart)
-        
+        let oneOrder = {
+         orderNro : parseInt(Math.random()*1000),
+         buyer: userData,
+         items: cart,
+         priceTotal: cart.reduce((obj, data) => {obj += data.price * data.quantity; return obj; }, 0)
     }
+    setorder(oneOrder)
+    console.log('oneOrder')
+    console.log(oneOrder)
+}
     /*const isInCart =(itemId) =>{
         if (!Array.isArray(cart)) {
             throw new Error('cart no es un array');
@@ -27,7 +28,7 @@ export const OrderProvider = ({children}) =>{
           return cart.some(prod => prod.id === itemId);
     }*/
     return(
-        <OrderContext.Provider value={{order, addOrder}}>
+        <OrderContext.Provider value={{order, addOrder, setorder}}>
             {children}
         </OrderContext.Provider>
     )

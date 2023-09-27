@@ -1,19 +1,26 @@
 import './Checkout.css';
 import React, { useState } from 'react'
 import { OrderContext} from '../../Context/OrderContext'
-
+import { CartContext} from '../../Context/CartContext'
 import { useContext } from 'react';
-import { event } from 'jquery';
+import BtnCheckout from './BtnCheckout';
+
 
 const CheckoutForm = ({}) => {
     const {addOrder}= useContext(OrderContext)
+    const {setorder}= useContext(OrderContext)
+    const {clearCart}= useContext(CartContext)
+    const {order}= useContext(OrderContext)
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [ws, setWs] = useState('')
     const [responseName, setResponseName] = useState('')
     const [responseEmail, setResponseEmail] = useState('')
     const [responseWs, setResponseWs] = useState('')
-    const [boolean, setBoolean] = useState(false)
+    const [booleanTxt, setBooleanTxt] = useState(false)
+    const [booleanWs, setBooleanWs] = useState(false)
+    const [booleanEmail, setBooleanEmail] = useState(false)
+    
     
     const handleConfirm = (event) =>{
         event.preventDefault();
@@ -21,9 +28,7 @@ const CheckoutForm = ({}) => {
         const userData = {
             name, ws, email
         }
-        console.log('hola')
         addOrder(userData)
-       
     }
 
     const validarTxt = (event) =>{
@@ -45,7 +50,7 @@ const CheckoutForm = ({}) => {
               } else {
                 // Si pasamos todas la validaciones anteriores, entonces el input es valido
                 setResponseName('')
-                setBoolean(true)
+                setBooleanTxt(true)
                 setName(inputName)
               }
             }
@@ -73,12 +78,11 @@ const CheckoutForm = ({}) => {
                 setResponseEmail('No es un email')
               }else{
                   setEmail(inputEmail)
-                  setBoolean(true)
+                  setBooleanEmail(true)
                   setResponseEmail('')
                 }
               }
-            }
-          
+            }  
     }
 
     const validarNumber = (event) =>{
@@ -102,59 +106,64 @@ const CheckoutForm = ({}) => {
             setResponseWs('Faltan ingresar algunos valores mas')
             if(inputWs.length === 11){
               setWs(inputWs)
-              setBoolean(true)
+              setBooleanWs(true)
               setResponseWs('')
             }else{
               setResponseWs('El campo debe contener un máximo de 11 caracteres')
-              setBoolean(false)
+              setBooleanWs(false)
             }
             }
           }
         }
     }
 
+    
     return (
         <div className='d-flex flex-column align-self-baseline'>
-          
             <form onSubmit={(e) => handleConfirm(e)} className="form-inline w-50 m-4 " id="searchSelected"  >
                 <h2>Orden de pedido</h2>
-                <input
-                    className="form-control mr-sm-2 w-75 mx-4 my-2" type="text"
-                    placeholder=" Ingresa tu nombre"
-                    id="inputName"
-                    name='name'
-                    value={name}
-                    onChange={(event) => validarTxt(event)} 
-                >
-                </input>
-                <p className={ responseName.length >0 ? 'mr-sm-2 w-75 mx-4 inputRed' : 'mr-sm-2 w-75 mx-4'}>{responseName}</p>
-              
-               <input
-                    className="form-control mr-sm-2 w-75 mx-4 my-2" type="text"
-                    placeholder=" Ingresa tu email"
-                    id="inputEmail"
-                    name='email'
-                    value={email}
-                    onChange={(event) => validarEmail(event)} 
-                >
-                </input>
-                <p  className={ responseEmail.length >0 ? 'mr-sm-2 w-75 mx-4 inputRed' : ' mr-sm-2 w-75 mx-4'}>{responseEmail}</p>
+                 {order.orderNro>0? <BtnCheckout order={order.orderNro}/>:''}  
+                    <input
+                        className="form-control mr-sm-2 w-75 mx-4 my-2" type="text"
+                        placeholder=" Ingresa tu nombre"
+                        id="inputName"
+                        name='name'
+                        value={name}
+                        onChange={(event) => validarTxt(event)} 
+                    >
+                    </input>
+                    <p className={ responseName.length >0 ? 'mr-sm-2 w-75 mx-4 pRed' : 'mr-sm-2 w-75 mx-4'}>{responseName}</p>
+                  
+                  <input
+                        className="form-control mr-sm-2 w-75 mx-4 my-2" type="text"
+                        placeholder=" Ingresa tu email"
+                        id="inputEmail"
+                        name='email'
+                        value={email}
+                        onChange={(event) => validarEmail(event)} 
+                    >
+                    </input>
+                    <p className={ responseEmail.length >0 ? 'mr-sm-2 w-75 mx-4 pRed' : 'mr-sm-2 w-75 mx-4'}>{responseEmail}</p>
 
 
-                <input
-                    className="form-control mr-sm-2 w-75 mx-4 my-2" type="text"
-                    placeholder=" Ingresa tu whatsapp"
-                    id="inputWhatsapp"
-                    name='ws'
-                    value={ws}
-                    onChange={(event) => validarNumber(event)} 
-                >
-                </input>
-                <p  className={ responseWs.length >0 ? 'mr-sm-2 w-75 mx-4 inputRed' : 'mr-sm-2 w-75 mx-4'}>{responseWs}</p>
+                    <input
+                        className="form-control mr-sm-2 w-75 mx-4 my-2" type="text"
+                        placeholder=" Ingresa tu whatsapp"
+                        id="inputWhatsapp"
+                        name='ws'
+                        value={ws}
+                        onChange={(event) => validarNumber(event)} 
+                    >
+                    </input>
+                    <p className={ responseWs.length >0 ? 'mr-sm-2 w-75 mx-4 pRed' : 'mr-sm-2 w-75 mx-4'}>{responseWs}</p>
 
-                {boolean === true?<button type="submit" className="btn btn-success m-3">Confirmar</button>:
-                <button type="submit" className="disabled btn btn-dark">Confirmar</button>}
+                    {booleanTxt === true && booleanEmail === true && booleanWs === true ? <button type="submit" className="btn btn-success m-3">Confirmar</button>:
+                    <button type="submit" className="disabled btn btn-dark">Confirmar</button>}
+                
+      
             </form>
+          
+           
         </div>
     )
 }
