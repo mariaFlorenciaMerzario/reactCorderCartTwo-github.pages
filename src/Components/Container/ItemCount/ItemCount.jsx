@@ -1,29 +1,50 @@
 import Button from "../button/Button"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { CartContext} from "../../../Context/CartContext"
+import { StockContext} from "../../../Context/StockContext"
+
+
 const ItemCount = ({initial, onAdd}) => {
-  
+    
     const [quantity, setQuantity]= useState(initial)
-    const [stock, setStock]= useState(10)
- 
+    //const [stock, setStock]= useState(10)
+    const {stock}= useContext(StockContext)
+    const {restaStock}= useContext(StockContext)
+    const {sumaStock}= useContext(StockContext)
+    const {sinStock}= useContext(StockContext)
+    const {setSinStock}= useContext(StockContext)
+    const {setStock}= useContext(StockContext)
+    
+    
     const increment =()=>{
-        
-        console.log('stock2')
-        console.log(stock)
-       
-        if(quantity < stock){
-            if(quantity + 1 <= stock){
-                setQuantity(quantity+1)
-                setStock(stock-1)
+        console.log('stock en itemCount')
+        restaStock()
+        if(sinStock !== true){
+            if(quantity <25){
+            setQuantity(quantity+1)
+                console.log(stock)
             }else{
-                alert("No hay mas stock de este producto")
+                alert("La cantidad del producto excede nuestro stock")
             }
+        }else{
+            alert("Sin stock del producto")
+            setSinStock(true)
         }
     }
-    const decrement =()=>{
-        if(quantity > 1){
-           
-            setQuantity(quantity-1)
+    const decrement =()=>{ 
+        console.log('stock en itemCount decrement')
+        sumaStock()
+        if(sinStock !== true){
+            console.log('quantity en decrement')
+            console.log(quantity)
+            if(quantity >=2){
+                setQuantity(quantity-1)    
+            }else{
+                alert("La cantidad no puede ser menor a 1")
+            }
+        }else{
+            alert("Sin stock del producto")
+            setSinStock(false)
         }
     }
     return(

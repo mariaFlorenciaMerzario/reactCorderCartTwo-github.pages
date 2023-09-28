@@ -21,7 +21,6 @@ console.log(stock)
     }
     return(
      <>
-    
         <div className='d-flex justify-content-center mx-4'>
             <img className="mx-4 vertical-align-center" src={require('../Assets/'+image)} style={{width: '150px'}}alt={name}/>
             <h2>{name}</h2>

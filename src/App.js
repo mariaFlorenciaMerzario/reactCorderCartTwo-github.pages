@@ -22,10 +22,12 @@ import Checkout from './Components/Checkout/Checkout';
 import ItemDetail from './Components/Container/ItemDetail';
 import ProductList from './Components/Container/Products';
 import { OrderProvider } from './Context/OrderContext';
+import { StockProvider} from './Context/StockContext'
 function App() {
   return (
     <div className="App">
     <BrowserRouter>
+    <StockProvider>
     <CarProvider>
     <OrderProvider>
     <Navbar />
@@ -41,6 +43,7 @@ function App() {
       </Routes>
       </OrderProvider>
       </CarProvider>
+      </StockProvider>
     </BrowserRouter>
   
     <Footer />

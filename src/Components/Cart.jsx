@@ -13,6 +13,7 @@ const Cart = (onAdd) => {
     const {removeItem}= useContext(CartContext)
 
    
+    
   return (
   <>
 <table className="table">
