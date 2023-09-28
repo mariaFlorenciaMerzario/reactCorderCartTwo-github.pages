@@ -1,13 +1,23 @@
 import Button from "../button/Button"
 import { useState } from "react"
 import { CartContext} from "../../../Context/CartContext"
-const ItemCount = ({stock, initial, onAdd}) => {
+const ItemCount = ({initial, onAdd}) => {
   
     const [quantity, setQuantity]= useState(initial)
+    const [stock, setStock]= useState(10)
+ 
     const increment =()=>{
-
+        
+        console.log('stock2')
+        console.log(stock)
+       
         if(quantity < stock){
-            setQuantity(quantity+1)
+            if(quantity + 1 <= stock){
+                setQuantity(quantity+1)
+                setStock(stock-1)
+            }else{
+                alert("No hay mas stock de este producto")
+            }
         }
     }
     const decrement =()=>{

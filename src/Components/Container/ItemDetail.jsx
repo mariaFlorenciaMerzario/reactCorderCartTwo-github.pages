@@ -6,7 +6,8 @@ import {CartContext} from '../../Context/CartContext'
 
 import { useParams } from 'react-router-dom'
 const ItemDetail = ({id, name, price, description, image, quantity , stock}) => {
-
+console.log('stock')
+console.log(stock)
     const productIt = useParams
     const [quantityAdded, setQuantityAdded] = useState(0)
     const {addItem}= useContext(CartContext)
@@ -21,7 +22,7 @@ const ItemDetail = ({id, name, price, description, image, quantity , stock}) => 
     return(
      <>
     
-        <div className='d-flex'>
+        <div className='d-flex justify-content-center mx-4'>
             <img className="mx-4 vertical-align-center" src={require('../Assets/'+image)} style={{width: '150px'}}alt={name}/>
             <h2>{name}</h2>
             </div>

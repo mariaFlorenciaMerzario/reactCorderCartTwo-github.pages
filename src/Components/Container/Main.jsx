@@ -2,7 +2,8 @@ import Card from "./Card"
 import { getProducts} from '../../json'
 import { useState, useEffect } from "react"
 import SpinnerB from "../Spinner/SpinnerB"
-
+import {collection, getDocs } from "firebase/firestore"
+import {db} from "../../firebase/config"
 
 import { useParams } from "react-router-dom"
 
@@ -19,10 +20,18 @@ const Main = () => {
       );
 
       useEffect(() => {
-        setProducts(products);
-      }, [products]);
-    
-    useEffect(() =>{
+        const productosRef = collection(db, "productos");
+        getDocs(productosRef)
+        .then((resp) => {
+            setProducts(
+            resp.docs.map((doc) => {
+               return {...doc.data(), id: doc.id} 
+            }))
+        })
+
+    },[])
+
+  /*  useEffect(() =>{
         getProducts()
         .then(response =>{  
             setProducts(response)  
@@ -32,7 +41,7 @@ const Main = () => {
              console.error(error)
         })
 
-    },[])
+    },[])*/
 
    /* useEffect(() =>{
         const fetchData = async () =>{

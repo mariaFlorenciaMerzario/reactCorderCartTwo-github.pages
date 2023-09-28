@@ -4,6 +4,8 @@ import { useState, useEffect } from "react"
 import SpinnerB from "../../Spinner/SpinnerB"
 import { useParams } from "react-router-dom"
 import ItemListContainer from "../../ItemListContainer/ItemListContainer"
+import {collection, getDocs , query, where} from "firebase/firestore"
+import {db} from "../../../firebase/config"
 
 const ItemListCategory = () => {
     
@@ -11,16 +13,20 @@ const ItemListCategory = () => {
     let category =''
     let {categoryName} = useParams()
     console.log(categoryName)
+    let value = 0
      if(categoryName === 'CarnePollo') {
        
          category = ' Carne - Pollo'
+         value = 1
         }else if(categoryName ==='JamonCapresse'){
             category = ' Jamón y Queso - Capresse'
+            value = 2
         }else{
             category = 'Premiun'
+            value = 3
         }
     
-   useEffect(() =>{
+   /*useEffect(() =>{
     setProducts('')
         getProductsByCategory(categoryName)
         .then(response =>{   
@@ -29,7 +35,21 @@ const ItemListCategory = () => {
         .catch(error => {
             console.error(error)
         })
-    },[categoryName])    
+    },[categoryName]) */
+    
+    useEffect(() => {
+        const productosRef = collection(db, "productos");
+        const q = query(productosRef, where("category", "==", value))
+        getDocs(q)
+        .then((resp) => {
+            setProducts(
+            resp.docs.map((doc) => {
+               return {...doc.data(), id: doc.id} 
+            }))
+        })
+
+    },[value])
+
     return(
         <>
          <ItemListContainer className="my-4" greeting={'Resultados para la categoría:'+ category}/>

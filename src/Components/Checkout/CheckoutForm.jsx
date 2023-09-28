@@ -13,13 +13,16 @@ const CheckoutForm = ({}) => {
     const {order}= useContext(OrderContext)
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
+    const [emailDos, setEmailDos] = useState('')
     const [ws, setWs] = useState('')
     const [responseName, setResponseName] = useState('')
     const [responseEmail, setResponseEmail] = useState('')
+    const [responseEmail2, setResponseEmailDos] = useState('')
     const [responseWs, setResponseWs] = useState('')
     const [booleanTxt, setBooleanTxt] = useState(false)
     const [booleanWs, setBooleanWs] = useState(false)
     const [booleanEmail, setBooleanEmail] = useState(false)
+    const [booleanEmailDos, setBooleanEmailDos] = useState(false)
     
     
     const handleConfirm = (event) =>{
@@ -43,10 +46,12 @@ const CheckoutForm = ({}) => {
             if(inputName.length > 35) {
              
               setResponseName('El campo no puede tener mas de 35 caracteres')
+              setBooleanTxt(false)
             } else {
               // Tercera validacion, si input contiene caracteres diferentes a los permitidos
               if(!/^[a-zA-Z\ áéíóúÁÉÍÓÚñÑ\s]*$/.test(inputName.trim())){ 
                 setResponseName('Caracter inválido')
+                setBooleanTxt(false)
               } else {
                 // Si pasamos todas la validaciones anteriores, entonces el input es valido
                 setResponseName('')
@@ -68,6 +73,7 @@ const CheckoutForm = ({}) => {
             // Segunda validacion, si input es mayor que 35
             if(email.length > 35) { 
               setResponseEmail('El campo no puede tener mas de 35 caracteres')
+              setBooleanEmail(false)
             } else {
                 setEmail(inputEmail)
               // Tercera validacion, si input contiene caracteres diferentes a los permitidos
@@ -76,6 +82,7 @@ const CheckoutForm = ({}) => {
               // Si queremos agregar letras acentuadas y/o letra ñ debemos usar
               // codigos de Unicode (ejemplo: Ñ: \u00D1  ñ: \u00F1)
                 setResponseEmail('No es un email')
+                setBooleanEmail(false)
               }else{
                   setEmail(inputEmail)
                   setBooleanEmail(true)
@@ -83,7 +90,22 @@ const CheckoutForm = ({}) => {
                 }
               }
             }  
-    }
+          }
+            const validarEmailDos = (event) =>{
+              // const pattern = new RegExp(/^[A-Za-zñÑáéíóúÁÉÍÓÚ\s]*$/);
+              const inputEmailDos= event.target.value;
+             
+               if(email !== inputEmailDos) { 
+
+                  setEmailDos(inputEmailDos)
+                  setResponseEmailDos('El mail no coincide')
+                  setBooleanEmailDos(false)
+                 }else{
+                  setEmailDos(inputEmailDos)
+                  setBooleanEmailDos(true)
+                  setResponseEmailDos('')
+                 }
+           }
 
     const validarNumber = (event) =>{
       const inputWs= event.target.value;
@@ -133,19 +155,7 @@ const CheckoutForm = ({}) => {
                     >
                     </input>
                     <p className={ responseName.length >0 ? 'mr-sm-2 w-75 mx-4 pRed' : 'mr-sm-2 w-75 mx-4'}>{responseName}</p>
-                  
-                  <input
-                        className="form-control mr-sm-2 w-75 mx-4 my-2" type="text"
-                        placeholder=" Ingresa tu email"
-                        id="inputEmail"
-                        name='email'
-                        value={email}
-                        onChange={(event) => validarEmail(event)} 
-                    >
-                    </input>
-                    <p className={ responseEmail.length >0 ? 'mr-sm-2 w-75 mx-4 pRed' : 'mr-sm-2 w-75 mx-4'}>{responseEmail}</p>
-
-
+                
                     <input
                         className="form-control mr-sm-2 w-75 mx-4 my-2" type="text"
                         placeholder=" Ingresa tu whatsapp"
@@ -157,12 +167,35 @@ const CheckoutForm = ({}) => {
                     </input>
                     <p className={ responseWs.length >0 ? 'mr-sm-2 w-75 mx-4 pRed' : 'mr-sm-2 w-75 mx-4'}>{responseWs}</p>
 
-                    {booleanTxt === true && booleanEmail === true && booleanWs === true ? <button type="submit" className="btn btn-success m-3">Confirmar</button>:
-                    <button type="submit" className="disabled btn btn-dark">Confirmar</button>}
-                
-      
+                    <input
+                        className="form-control mr-sm-2 w-75 mx-4 my-2" type="text"
+                        placeholder=" Ingresa tu email"
+                        id="inputEmail"
+                        name='email'
+                        value={email}
+                        onChange={(event) => validarEmail(event)} 
+                    >
+                    </input>
+
+                    
+                    <p className={ responseEmail.length >0 ? 'mr-sm-2 w-75 mx-4 pRed' : 'mr-sm-2 w-75 mx-4'}>{responseEmail}</p>
+
+
+                    <input
+                        className="form-control mr-sm-2 w-75 mx-4 my-2" type="text"
+                        placeholder=" Ingresa tu email nuevamente"
+                        id="inputEmailDos"
+                        name='emailDos'
+                        value={emailDos}
+                        onChange={(event) => validarEmailDos(event)} 
+                    >
+                    </input>
+                    <p className={ responseEmail2.length >0 ? 'mr-sm-2 w-75 mx-4 pRed' : 'mr-sm-2 w-75 mx-4'}>{responseEmail2}</p>
+
+
+                    {booleanTxt === true && booleanEmail === true && booleanEmailDos === true && booleanWs === true ? <button type="submit" className="btn btn-success m-3">Confirmar</button>:
+                  <button type="submit" className="disabled btn btn-dark">Confirmar</button>}
             </form>
-          
            
         </div>
     )

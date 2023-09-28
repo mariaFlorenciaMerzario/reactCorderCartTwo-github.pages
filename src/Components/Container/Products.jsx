@@ -5,17 +5,17 @@ import { useEffect, useState } from 'react';
 import { getProductById } from '../../json';
 import { useParams } from "react-router-dom"
 import { Spinner } from 'react-bootstrap';
-
 import { OrderContext} from '../../Context/OrderContext'
 import { useContext } from 'react';
-
+import { doc, getDoc } from 'firebase/firestore';
+import {db} from "../../firebase/config"
 const ProductList = () => {
     const {setorder}= useContext(OrderContext)
     
     let {productId} = useParams()
     const [product, setProduct] = useState(null)
     
-    useEffect(()=>{
+   /* useEffect(()=>{
         setorder(0) 
         getProductById(productId)
         .then(response =>{
@@ -24,7 +24,19 @@ const ProductList = () => {
         .catch(error =>{
             console.error(error)
         })
-    }, [])
+    }, [])*/
+    
+    useEffect(()=>{
+        setorder(0) 
+            const docRef = doc(db, "productos", productId );
+            getDoc(docRef)
+            .then((resp) =>{
+              setProduct(
+                {
+                  ...resp.data(), id: resp.id
+              })
+            })    
+        }, [])
 
     return(
     <>
