@@ -42,6 +42,7 @@ export const CarProvider = ({children}) =>{
 
     const clearCart = () =>{
         setCart([])
+        setTotalQuantity(0)
     }
     const isInCart =(itemId) =>{
         if (!Array.isArray(cart)) {

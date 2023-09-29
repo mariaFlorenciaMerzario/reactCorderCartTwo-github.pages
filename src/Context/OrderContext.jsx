@@ -2,7 +2,8 @@ import React from 'react'
 import { createContext, useState } from 'react'
 import { CartContext} from "../Context/CartContext"
 import { useContext } from 'react';
-import { addDoc, collection, getFirestone } from 'firebase/firestore';
+import { addDoc, collection } from 'firebase/firestore';
+import { db } from '../firebase/config';
 export const OrderContext = createContext({
     order:[]
 })
@@ -10,18 +11,28 @@ export const OrderContext = createContext({
 
 export const OrderProvider = ({children}) =>{
     const [order, setorder] = useState([])
+    const [pedidoId, setPedidoId] = useState('')
     const {cart}= useContext(CartContext)
+    const {clearCart}= useContext(CartContext)
 
     const addOrder = (userData)=>{
-        let oneOrder = {
-         orderNro : parseInt(Math.random()*1000),
+        let pedido = {
+        // orderNro : parseInt(Math.random()*1000),
          buyer: userData,
          items: cart,
          priceTotal: cart.reduce((obj, data) => {obj += data.price * data.quantity; return obj; }, 0)
     }
-    setorder(oneOrder)
-    console.log('oneOrder')
-    console.log(oneOrder)
+
+    //setorder(pedido)
+    const pedidosRef = collection(db, "pedidos")
+    addDoc(pedidosRef, pedido)
+        .then((doc) =>{
+            setPedidoId(doc.id)
+            clearCart()
+
+        })
+    console.log('pedido')
+    console.log(pedido)
    
   /* const sendOrder =() =>{
     
@@ -41,7 +52,7 @@ export const OrderProvider = ({children}) =>{
           return cart.some(prod => prod.id === itemId);
     }*/
     return(
-        <OrderContext.Provider value={{order, addOrder, setorder}}>
+        <OrderContext.Provider value={{order, addOrder, setorder, pedidoId}}>
             {children}
         </OrderContext.Provider>
     )

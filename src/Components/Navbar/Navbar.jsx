@@ -5,8 +5,13 @@ import Logo from "./Logo"
 //import Cart from '../Cart/Cart'
 import Button from '../Container/button/Button'
 import {NavLink, Link} from 'react-router-dom'
+import { createContext, useContext, useState } from 'react'
+import { CartContext} from "../../Context/CartContext"
 
 const Navbar = () => {
+    const {cart}= useContext(CartContext)
+    const {clearCart}= useContext(CartContext)
+
     return(
      
         <div className="m-4 p-4 row d-flex align-items-center justify-content-around">
@@ -27,6 +32,7 @@ const Navbar = () => {
 
                         <Link to={'/reactCoder.github.io/build/cart'}>
                             <CartWidget quantity="1" textWite="text-white"/>
+                            {cart.length >0?<button className='btn btn-danger' onClick={clearCart}>Vaciar carrito</button>:null}
                         </Link>
                         
                 </div>
