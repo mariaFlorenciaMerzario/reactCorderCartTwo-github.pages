@@ -23,14 +23,14 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <div className="navbar-nav m-auto">
 
-                        <NavLink to={'/reactCoder.github.io/build'} className="btn btn-warning">Nuestros Productos</NavLink>
-                        <NavLink to={'/reactCoder.github.io/build/category/CarnePollo'} className="btn btn-dark mx-3">Carne y Pollo</NavLink>
-                        <NavLink to={'/reactCoder.github.io/build/category/JamonCapresse'} className="btn btn-dark mx-3">Jamón y Queso - Capresse</NavLink>
-                        <NavLink to={'/reactCoder.github.io/build/category/Premiun'} className="btn btn-dark">Premiun</NavLink>
+                        <NavLink to={'/'} className="btn btn-warning">Nuestros Productos</NavLink>
+                        <NavLink to={'/category/CarnePollo'} className="btn btn-dark mx-3">Carne y Pollo</NavLink>
+                        <NavLink to={'/category/JamonCapresse'} className="btn btn-dark mx-3">Jamón y Queso - Capresse</NavLink>
+                        <NavLink to={'/category/Premiun'} className="btn btn-dark">Premiun</NavLink>
 
                     </div>
 
-                        <Link to={'/reactCoder.github.io/build/cart'}>
+                        <Link to={'/cart'}>
                             <CartWidget quantity="1" textWite="text-white"/>
                             {cart.length >0?<button className='btn btn-danger' onClick={clearCart}>Vaciar carrito</button>:null}
                         </Link>

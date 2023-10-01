@@ -32,13 +32,13 @@ function App() {
     <OrderProvider>
     <Navbar />
       <Routes>
-        <Route path='/reactCoder.github.io/build' element={<Container />}/>
-        <Route path='/reactCoder.github.io/build/category/:categoryName' element={<ItemListCategory />}/>
-        <Route path='/reactCoder.github.io/build/category/item/:itemId' element={<Container />}/>
-        <Route path='/reactCoder.github.io/build/cart' element={<Cart />}/>
-        <Route path='/reactCoder.github.io/build/checkout' element={<Checkout/>}/> 
-        <Route path='/reactCoder.github.io/build/productList/:productId' element={<ProductList/>}/>
-        <Route path='/reactCoder.github.io/build/:*' element={<h1>Not found</h1>}/> 
+        <Route path='/' element={<Container />}/>
+        <Route path='/category/:categoryName' element={<ItemListCategory />}/>
+        <Route path='/category/item/:itemId' element={<Container />}/>
+        <Route path='/cart' element={<Cart />}/>
+        <Route path='/checkout' element={<Checkout/>}/> 
+        <Route path='/productList/:productId' element={<ProductList/>}/>
+        <Route path='/:*' element={<h1>Not found</h1>}/> 
 
       </Routes>
       </OrderProvider>

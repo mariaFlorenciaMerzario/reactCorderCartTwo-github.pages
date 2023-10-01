@@ -52,7 +52,7 @@ const Cart = (onAdd) => {
 {cart.length != 0?
    <> 
     <p className='h3'>Total: ${total}</p>
-    <NavLink to={'/reactCoder.github.io/build/checkout'} className="btn btn-success mx-3">Checkout</NavLink>
+    <NavLink to={'/checkout'} className="btn btn-success mx-3">Checkout</NavLink>
                       
     </>
    :''}

@@ -31,12 +31,12 @@ console.log(stock)
             <p>Precio: ${price}.-</p>
             {
                 quantityAdded >0 ?(
-                    <Link to={'/reactCoder.github.io/build/cart'} className='btn btn-success'>Terminar la compra</Link>
+                    <Link to={'/cart'} className='btn btn-success'>Terminar la compra</Link>
                 ):(
                     <ItemCount initial={1} stock={stock} onAdd={handleOnAdd}/>
                 )
             }
-             <NavLink to={'/reactCoder.github.io/build'} className="btn btn-warning">Volver al listado de productos</NavLink>
+             <NavLink to={'/'} className="btn btn-warning">Volver al listado de productos</NavLink>
          </div>
     </>
     )
