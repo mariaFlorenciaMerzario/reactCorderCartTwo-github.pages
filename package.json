@@ -2,7 +2,7 @@
   "name": "florencia-empanadas",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/mariaFlorenciaMerzario/reactCorderCartTwo-github.pages.git/build",
+  "homepage": "http://localhost:3000/reactCoder.github.io/build",
   "dependencies": {
     "@babel/core": "^7.12.3",
     "@babel/polyfill": "^7.12.1",
