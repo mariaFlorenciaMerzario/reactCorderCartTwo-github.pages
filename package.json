@@ -2,7 +2,7 @@
   "name": "entrega-01",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mariaflorenciamerzario.github.io/reactCoder.github.io/build",
+  "homepage": "https://github.com/mariaFlorenciaMerzario/reactCorderCartTwo-github.pages.git/build",
   "dependencies": {
     "@babel/core": "^7.12.3",
     "@babel/polyfill": "^7.12.1",
