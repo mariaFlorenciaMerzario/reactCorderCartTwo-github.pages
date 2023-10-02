@@ -143,7 +143,7 @@ const CheckoutForm = ({}) => {
 
     if(pedidoId){
       return(
-        <><h2 className='p-4'>Muchas Gracias por su Compra</h2>
+        <><h2 className='p-4'>Muchas gracias realizar por su compra</h2>
         <div className='bg-warning rounded w-25 m-auto p-3'>Su código de orden es: <strong>{pedidoId}</strong></div>
         <NavLink to={'/'} className="btn btn-success m-4">Volver a Comprar</NavLink>
 

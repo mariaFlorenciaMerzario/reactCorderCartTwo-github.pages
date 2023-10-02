@@ -1,6 +1,4 @@
-.mtop5{
-    margin-top:10%
-}
+
 .mtop20{
     margin-top: 20px;
 }
@@ -28,5 +26,8 @@
     }
     .dNonePc{
         display: block;
+    }
+    .marginMobile5{
+        margin-top: 10%;
     }
   }

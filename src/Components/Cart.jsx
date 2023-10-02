@@ -19,7 +19,7 @@ const Cart = (onAdd) => {
 <table className="table mtop5">
   <thead className="thead-light">
 {cart.length != 0?
-    <tr className='m-5 displayNone'>
+    <tr className='displayNone'>
       <th scope="col">Nombre</th>
       <th scope="col">Cantidad</th>
       <th scope="col">Precio</th>
