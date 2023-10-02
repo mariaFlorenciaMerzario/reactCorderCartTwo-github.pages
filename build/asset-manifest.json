@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.96bea647.css",
+    "main.css": "/static/css/main.62f0f95a.css",
     "main.js": "/static/js/main.a863d719.js",
     "static/js/787.4f2df6e5.chunk.js": "/static/js/787.4f2df6e5.chunk.js",
     "static/media/criolla.jpg": "/static/media/criolla.bae3e5aed832af7937fe.jpg",
@@ -17,12 +17,12 @@
     "static/media/logo.jpg": "/static/media/logo.57446099744105fd60f6.jpg",
     "static/media/roqueforJamon.jfif": "/static/media/roqueforJamon.a7a6d4b406bbf8d7e6a5.jfif",
     "index.html": "/index.html",
-    "main.96bea647.css.map": "/static/css/main.96bea647.css.map",
+    "main.62f0f95a.css.map": "/static/css/main.62f0f95a.css.map",
     "main.a863d719.js.map": "/static/js/main.a863d719.js.map",
     "787.4f2df6e5.chunk.js.map": "/static/js/787.4f2df6e5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.96bea647.css",
+    "static/css/main.62f0f95a.css",
     "static/js/main.a863d719.js"
   ]
 }
