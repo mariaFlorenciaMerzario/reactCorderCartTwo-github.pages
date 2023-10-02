@@ -14,9 +14,9 @@ const Navbar = () => {
 
     return(
      
-        <div className="m-4 p-4 row d-flex align-items-center justify-content-around">
-            <nav className="navbar navbar-expand-lg navbar-light d-flex justify-content-around m-2 banner">
-                <Link to={'/reactCoder.github.io/build'} className="navbar-brand" href="#"><Logo/> </Link>
+        <div className="m-5 margin-botom-5 row d-flex align-items-center justify-content-around">
+            <nav className="mx-5 navbar navbar-expand-lg navbar-light d-flex justify-content-around m-2 banner">
+                <Link to={'/'} className="navbar-brand m-3" href="#"><Logo/> </Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -32,7 +32,7 @@ const Navbar = () => {
 
                         <Link to={'/cart'}>
                             <CartWidget quantity="1" textWite="text-white"/>
-                            {cart.length >0?<button className='btn btn-danger' onClick={clearCart}>Vaciar carrito</button>:null}
+                            {cart.length >0?<button className='btn btn-warning m-2' onClick={clearCart}>Vaciar carrito</button>:null}
                         </Link>
                         
                 </div>

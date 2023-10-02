@@ -63,10 +63,8 @@ const Main = () => {
 */
     return(
         <> 
-            <form>
-                
+            <form>    
             <input
-           
                 type="text"
                 placeholder="Ingresá el producto buscado..."
                 value={term}
@@ -74,8 +72,6 @@ const Main = () => {
                 className="form-control w-25 m-auto bg-light"
             />
           </form>
-        
-
         { products.length > 0 ?
             <div className="m-2 row d-flex flex-md-row flex-column justify-content-center">
                 {filteredData.map((element, index) => (

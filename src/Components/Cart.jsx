@@ -16,11 +16,10 @@ const Cart = (onAdd) => {
     
   return (
   <>
-<table className="table">
+<table className="table mx-5">
   <thead className="thead-light">
 {cart.length != 0?
-    <tr>
-    <th scope="col">ID</th>
+    <tr className='m-5'>
       <th scope="col">Nombre</th>
       <th scope="col">Cantidad</th>
       <th scope="col">Precio</th>
@@ -36,7 +35,6 @@ const Cart = (onAdd) => {
       cart.map((item, index) => (
      <tr key={index}>
         <td className="d-none" ></td>
-        <td>{item.id}</td>
         <td>{item.name}</td>
         <td><ItemModif quantityItem={item.quantity} id={item.id}/></td>
         <td>${item.price}</td>

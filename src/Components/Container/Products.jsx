@@ -40,8 +40,10 @@ const ProductList = () => {
 
     return(
     <>
+    
     {product!= null?
     <ItemDetail{...product } stock={10}/>:<Spinner/>}
+   
    
     </>
   )

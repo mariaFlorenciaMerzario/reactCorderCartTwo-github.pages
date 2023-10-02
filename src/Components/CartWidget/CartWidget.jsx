@@ -6,7 +6,7 @@ import{ CartContext} from '../../Context/CartContext'
 const CartWidget = (props) => {
     const {totalQuantity} = useContext(CartContext)
     return(
-        <div className="fontAwesomeIconCart text-white"><FontAwesomeIcon icon={faCartPlus}/>{totalQuantity}</div>
+        <div className="mx-3 fontAwesomeIconCart text-white"><FontAwesomeIcon icon={faCartPlus}/>{totalQuantity}</div>
     )
 }
 export default CartWidget

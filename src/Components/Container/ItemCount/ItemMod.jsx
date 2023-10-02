@@ -66,7 +66,7 @@ const decrement =()=>{
             alert("La cantidad no puede ser menor a 1")
         }
     }else{
-        alert("Sin stock del producto")
+        alert("La cantidad no puede ser menor a 1")
         setSinStock(false)
     }
   }

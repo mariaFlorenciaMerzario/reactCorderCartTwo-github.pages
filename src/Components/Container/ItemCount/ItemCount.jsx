@@ -43,7 +43,7 @@ const ItemCount = ({initial, onAdd}) => {
                 alert("La cantidad no puede ser menor a 1")
             }
         }else{
-            alert("Sin stock del producto")
+            alert("Cantidad no disponible")
             setSinStock(false)
         }
     }
