@@ -17,3 +17,12 @@
 .m2{
     margin-top: 2%;
 }
+
+@media screen and (max-width: 600px) {
+    .width50 {
+        width: 50%;
+    }
+    .marginLeft13{
+        margin-left: 13px;
+    }
+}

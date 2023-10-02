@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import SpinnerB from "../Spinner/SpinnerB"
 import {collection, getDocs } from "firebase/firestore"
 import {db} from "../../firebase/config"
-
+import ItemDetailCss from './ItemDetail.css'
 import { useParams } from "react-router-dom"
 
 const Main = () => {
@@ -69,7 +69,7 @@ const Main = () => {
                 placeholder="Ingresá el producto buscado..."
                 value={term}
                 onChange={handleSearch}
-                className="form-control w-25 m-auto bg-light"
+                className="form-control width25 m-auto bg-light"
             />
           </form>
         { products.length > 0 ?

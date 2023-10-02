@@ -14,20 +14,20 @@ const Navbar = () => {
 
     return(
      
-        <div className="row d-flex align-items-center justify-content-around p-4">
+        <div className="row d-flex align-items-center justify-content-around p-2">
             <nav className="navbar navbar-expand-lg navbar-light bg-light navbar-light banner">
          {/* </nav>   <nav className="mx-5 navbar navbar-expand-lg navbar-light justify-content-around m-2 banner"> */}
                 <Link to={'/'} className="navbar-brand m-3" href="#"><Logo/> </Link>
                 <button className="navbar-toggler text-warning bg-warning m-3" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
+                <div className="collapse navbar-collapse marginLeft13" id="navbarNav">
                     <div className="navbar-nav m-auto">
 
-                        <NavLink to={'/'} className="btn btn-warning m-2">Nuestros Productos</NavLink>
-                        <NavLink to={'/category/CarnePollo'} className="btn btn-dark m-2">Carne y Pollo</NavLink>
-                        <NavLink to={'/category/JamonCapresse'} className="btn btn-dark m-2">Jamón y Queso - Capresse</NavLink>
-                        <NavLink to={'/category/Premiun'} className="btn btn-dark m-2">Premiun</NavLink>
+                        <NavLink to={'/'} className="btn btn-warning m-2 width50">Nuestros Productos</NavLink>
+                        <NavLink to={'/category/CarnePollo'} className="btn btn-dark m-2 width50">Carne y Pollo</NavLink>
+                        <NavLink to={'/category/JamonCapresse'} className="btn btn-dark m-2 width50">Jamón y Queso - Capresse</NavLink>
+                        <NavLink to={'/category/Premiun'} className="btn btn-dark m-2 width50">Premiun</NavLink>
 
                     </div>
 

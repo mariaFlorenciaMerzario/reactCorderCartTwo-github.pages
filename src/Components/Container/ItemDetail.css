@@ -8,7 +8,9 @@
 .d-flexColumnSm{
     display: contents;
 }
-
+.width25{
+    width: 25%;
+}
 
 /* On screens that are 600px or less, set the background color to olive */
 @media screen and (max-width: 600px) {
@@ -29,5 +31,8 @@
     }
     .marginMobile5{
         margin-top: 10%;
+    }
+    .width25{
+        width: 75%;
     }
   }
