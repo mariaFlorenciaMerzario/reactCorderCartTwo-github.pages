@@ -60,11 +60,11 @@ const Card = (props) => {
             <p>${props.price}.-</p> 
            <div className='d-flex justify-content-center'>
       </div>
+    { <NavLink to={`/productList/${props.id}`} className="btn btn-dark">Ver más</NavLink> }
     </div>
    
       {/* <button className='btn btn-dark w-75 m-auto my-3' onClick={() => openModal()}>Ver mas</button>
         {modalIsOpen && <ItemDetail{...product } stock={10}/>} */}
-      { <NavLink to={`/productList/${props.id}`} className="btn btn-dark m-3">Ver más</NavLink> }
      {/* {<ItemDetail{...product } stock={10}/>} */}
   </div>
     )
