@@ -6,7 +6,7 @@ import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import ItemModif from './Container/ItemCount/ItemMod'
 import RegreHome from './Container/RegreHome'
 import { NavLink } from 'react-router-dom'
-
+import ItemDetailCss from './Container/ItemDetail.css'
 const Cart = (onAdd) => {
     let total=0
     const {cart}= useContext(CartContext)
@@ -16,10 +16,10 @@ const Cart = (onAdd) => {
     
   return (
   <>
-<table className="table mx-5">
+<table className="table mtop5">
   <thead className="thead-light">
 {cart.length != 0?
-    <tr className='m-5'>
+    <tr className='m-5 displayNone'>
       <th scope="col">Nombre</th>
       <th scope="col">Cantidad</th>
       <th scope="col">Precio</th>
@@ -29,16 +29,15 @@ const Cart = (onAdd) => {
 :''}
   </thead>
   <tbody>
-    {console.log('cart.length')}
-    {console.log(cart.length)}
+    
      {cart.length >0?
       cart.map((item, index) => (
-     <tr key={index}>
+     <tr key={index} className='my-4 d-flexColumnSm flexColumnSm'>
         <td className="d-none" ></td>
         <td>{item.name}</td>
         <td><ItemModif quantityItem={item.quantity} id={item.id}/></td>
-        <td>${item.price}</td>
-        <td>${item.price*item.quantity}</td>
+        <td><span className='dNonePc'>Precio</span>${item.price}</td>
+        <td><span className='dNonePc'>Total</span> ${item.price*item.quantity}</td>
         <td className='d-none'>{total = item.price * item.quantity + total} </td>
         <td><button className="border-0" onClick={()=>removeItem(item.id)}><FontAwesomeIcon className="text-danger" icon={faTrashCan}/></button></td>
     </tr>

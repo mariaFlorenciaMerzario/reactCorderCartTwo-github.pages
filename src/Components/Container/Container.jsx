@@ -5,7 +5,7 @@ import Css from './ItemDetail.css'
 const Container = () => {
     return(
         <>
-         <div className="container mtop5">
+         <div className="container">
             <ItemListContainer greeting={'Bienvenidos'}/>
             <Main />
          </div>

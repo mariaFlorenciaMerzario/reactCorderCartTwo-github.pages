@@ -39,13 +39,11 @@ function App() {
         <Route path='/checkout' element={<Checkout/>}/> 
         <Route path='/productList/:productId' element={<ProductList/>}/>
         <Route path='/:*' element={<h1>Not found</h1>}/> 
-
       </Routes>
       </OrderProvider>
       </CarProvider>
       </StockProvider>
     </BrowserRouter>
-  
     <Footer />
     </div>
   );

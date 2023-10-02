@@ -1,6 +1,32 @@
-
-
 .mtop5{
-    margin-top:5%
+    margin-top:10%
+}
+.mtop20{
+    margin-top: 20px;
+}
+.dNonePc{
+    display: none;
+}
+.d-flexColumnSm{
+    display: contents;
 }
 
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+    .mtop20 {
+        margin-top: 20%!important;
+    }
+    .displayNone{
+        display: none;
+    }
+    .flexColumnSm{
+        flex-direction: column!important;
+    }
+    .d-flexColumnSm{
+        display: flex!important;
+    }
+    .dNonePc{
+        display: block;
+    }
+  }
