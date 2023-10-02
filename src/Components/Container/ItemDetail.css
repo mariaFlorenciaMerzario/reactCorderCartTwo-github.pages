@@ -6,10 +6,13 @@
     display: none;
 }
 .d-flexColumnSm{
-    display: contents;
+    display: revert;
 }
 .width25{
     width: 25%;
+}
+.flexColumnSm{
+    flex-direction: row;
 }
 
 /* On screens that are 600px or less, set the background color to olive */
