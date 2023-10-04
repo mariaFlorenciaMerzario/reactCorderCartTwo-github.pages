@@ -10,11 +10,12 @@ import 'react-tooltip/dist/react-tooltip.css'
 import { getProductById } from '../../json';
 import { NavLink } from 'react-router-dom';
 import ProductList from './Products';
+import { data } from 'jquery';
 
 
 const Card = (props) => {
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState([]);
   let id = props.id
  /*useEffect(()=>{
   console.log('params')
@@ -28,19 +29,6 @@ const Card = (props) => {
       })
   }, [])*/
 
-  useEffect(()=>{
-    console.log('params')
-    console.log(id)
-      
-        const docRef = doc(db, "productos", id );
-        getDoc(docRef)
-        .then((resp) =>{
-          setProduct(
-            {
-              ...resp.data(), id: resp.id
-          })
-        })    
-    }, [])
 
   function openModal() {
     console.log('product')

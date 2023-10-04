@@ -3,6 +3,8 @@ import { useContext, useState } from "react"
 import { CartContext} from "../../../Context/CartContext"
 import { StockContext} from "../../../Context/StockContext"
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ItemCount = ({initial, onAdd}) => {
     
@@ -24,11 +26,31 @@ const ItemCount = ({initial, onAdd}) => {
             setQuantity(quantity+1)
                 console.log(stock)
             }else{
-                alert("La cantidad del producto excede nuestro stock")
+                
+                toast('Sin stock del producto', {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    
+                });
             }
         }else{
-            alert("Sin stock del producto")
+            toast('Sin stock del producto', {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                
+            });
             setSinStock(true)
+            
         }
     }
     const decrement =()=>{ 
@@ -40,10 +62,29 @@ const ItemCount = ({initial, onAdd}) => {
             if(quantity >=2){
                 setQuantity(quantity-1)    
             }else{
-                alert("La cantidad no puede ser menor a 1")
+                toast('La cantidad no puede ser menor a 1', {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    
+                });
             }
         }else{
-            alert("Cantidad no disponible")
+            toast('Cantidad no disponible', {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                
+            });
+         
             setSinStock(false)
         }
     }
@@ -53,6 +94,7 @@ const ItemCount = ({initial, onAdd}) => {
             <Button class='btn btn-light' id="btnMinQuantity" value='-1' onClick={decrement}/>
             <span className="m-4">{quantity}</span>
             <Button class='btn btn-light' id="btnAddQuantity" value='+1' onClick={increment}/>
+            <ToastContainer></ToastContainer>
         </div>
             <Button onClick={()=> onAdd(quantity)} quantity={quantity} disabled={!stock} class='btn btn-warning m-2' value='Agregar al Carrito'/>
        </>

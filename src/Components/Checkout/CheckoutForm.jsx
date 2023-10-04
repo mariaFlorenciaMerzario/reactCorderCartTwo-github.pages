@@ -1,18 +1,22 @@
 import './Checkout.css';
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { OrderContext} from '../../Context/OrderContext'
 import { CartContext} from '../../Context/CartContext'
 import { useContext } from 'react';
 import BtnCheckout from './BtnCheckout';
 import { NavLink } from 'react-router-dom';
-
+import {doc, collection, getFirestone, getDoc, addDoc} from 'firebase/firestore'
+import {db} from "../../firebase/config"
+import Pedidos from './Pedido';
 
 const CheckoutForm = ({}) => {
     const {addOrder}= useContext(OrderContext)
     const {setorder}= useContext(OrderContext)
     const {clearCart}= useContext(CartContext)
     const {pedidoId}= useContext(OrderContext)
+    const {setPedidoId}= useContext(OrderContext)
     const {order}= useContext(OrderContext)
+    const [pedido, setPedidos] = useState('')
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [emailDos, setEmailDos] = useState('')
@@ -25,8 +29,81 @@ const CheckoutForm = ({}) => {
     const [booleanWs, setBooleanWs] = useState(false)
     const [booleanEmail, setBooleanEmail] = useState(false)
     const [booleanEmailDos, setBooleanEmailDos] = useState(false)
+    const [flat, setFlat] = useState(true)
     
-    
+console.log('pedidoId')
+console.log(pedidoId)
+  /*  useEffect(()=>{
+      if(pedidoId !== null){
+          const docRef = doc(db, "pedidos", pedidoId );
+          getDoc(docRef)
+          .then((resp) =>{
+            setPedidos(
+              {
+                ...resp.data(), id: resp.id
+            })
+          })  
+        }  
+      }, [pedidoId])*/
+
+   /* useEffect(()=>{
+      if(pedidoId !== null){
+      const docRef = doc(db, "pedidos", pedidoId)
+          getDoc(docRef)
+          .then((resp) =>{
+            console.log('resp')
+            console.log(resp.data())
+            setPedidos({
+              ...resp.data(), id: resp.id })
+            })
+          }  
+      }, [pedidoId])*/
+          console.log(pedido)
+          console.log(pedido)
+    /*function handleFunction(){
+    const docRef = collection(db, "pedidos", pedidoId)
+    getDoc(docRef)
+        .then((resp) =>{
+          setPedidos(
+            {...resp.data(), id: resp.id})
+            setFlat(false)
+        })
+    }*/
+  /* function handleFunction(){
+      console.log('pedido Id antes de firebase')
+      console.log(pedidoId)
+      const docRef = doc(db, "pedidos", pedidoId)
+          getDoc(docRef)
+          .then((resp) =>{
+
+            console.log('resp')
+            console.log(resp.data())
+            
+            setPedidos({
+              ...resp.data(), id: resp.id })
+            setFlat(false)
+            })  
+    }*/
+
+  
+      console.log('pedidos despues de get')
+      console.log(pedido)
+      console.log(typeof(pedido))
+   /* useEffect(() => {
+      const pedidosRef = collection(db, "pedidos");
+
+      const q = query(pedidosRef, where("id", "==", pedidoId))
+      getDocs(q)
+      .then((resp) => {
+        setPedidos(resp.docs.map((doc) => {
+            return {...doc.data(), id: doc.id} 
+          }))
+        })
+        console.log('pedidos despues de firebase')
+        console.log(q)
+
+  },[pedidoId])*/
+
     const handleConfirm = (event) =>{
         event.preventDefault();
 
@@ -143,14 +220,26 @@ const CheckoutForm = ({}) => {
 
     if(pedidoId){
       return(
-        <><h2 className='p-4'>Muchas gracias realizar por su compra</h2>
+        <>
+        <h2 className='p-4'>Muchas gracias realizar por su compra</h2>
         <div className='bg-warning rounded w-25 m-auto p-3'>Su código de orden es: <strong>{pedidoId}</strong></div>
+      
+        {/* {flat && pedidoId.length>0?handleFunction():''} */}
+        {/* <p>Detalle</p> */}
+         {/* <Pedidos
+         
+                id={pedido.id}
+           //     name={pedido.buyer.name}
+           //     price={pedido.buyer.ws}
+            //    quantity={pedido.buyer.email}
+                total={pedido.priceTotal}
+                items={pedido.items}
+            /> */}
+              
         <NavLink to={'/'} className="btn btn-success m-4">Volver a Comprar</NavLink>
-
         </>
-      )
+        )
     }
-    
     return (
         <div className='d-flex flex-column align-self-baseline'>
             <form onSubmit={(e) => handleConfirm(e)} className="form-inline w-50 m-4 " id="searchSelected"  >

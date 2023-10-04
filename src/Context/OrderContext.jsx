@@ -31,8 +31,6 @@ export const OrderProvider = ({children}) =>{
             clearCart()
 
         })
-    console.log('pedido')
-    console.log(pedido)
    
   /* const sendOrder =() =>{
     
@@ -52,7 +50,7 @@ export const OrderProvider = ({children}) =>{
           return cart.some(prod => prod.id === itemId);
     }*/
     return(
-        <OrderContext.Provider value={{order, addOrder, setorder, pedidoId}}>
+        <OrderContext.Provider value={{order, addOrder, setorder, pedidoId, setPedidoId}}>
             {children}
         </OrderContext.Provider>
     )

@@ -1,6 +1,9 @@
 import React from 'react'
 import { createContext, useState } from 'react'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export const CartContext = createContext({
     cart:[]
 })
@@ -16,7 +19,17 @@ export const CarProvider = ({children}) =>{
             setCart(prev =>[...prev,{...item, quantity}])
             setTotalQuantity(quantity + totalQuantity)
        }else{
-            alert(`El producto ${item.name} ya se encuentra en el carrito`)
+        toast('El producto ya se encuentra en el carrito', {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            
+        });
+            
         }
     }
     const removeItem = (itemId) =>{
@@ -24,6 +37,7 @@ export const CarProvider = ({children}) =>{
         const cartUpdated = cart.filter(prod =>prod.id !== itemId)
         console.log('cartUpdated')
         console.log(cartUpdated)
+        
         if(cartUpdated.length >0){
             setCart(cartUpdated)
             cartUpdated.map(function(prod) {   
@@ -67,6 +81,7 @@ export const CarProvider = ({children}) =>{
     return(
         <CartContext.Provider value={{cart, addItem, removeItem, clearCart, setQuantityAdded, editCart,setTotalQuantity, totalQuantity}}>
             {children}
+            <ToastContainer></ToastContainer>
         </CartContext.Provider>
     )
 }
