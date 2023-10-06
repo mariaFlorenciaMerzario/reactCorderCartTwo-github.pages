@@ -176,7 +176,7 @@ const CheckoutForm = ({}) => {
 
         // Segunda validacion, si input es mayor que 35
         if(inputWs.length > 35) { 
-          setResponseWs('El campo no puede tener mas de 35 caracteres')
+          setResponseWs('El campo no puede tener mas de 10 caracteres')
         } else {
             setWs(inputWs)
           // Tercera validacion, si input contiene caracteres diferentes a los permitidos
@@ -187,12 +187,12 @@ const CheckoutForm = ({}) => {
             setResponseWs('No es un valor numérico')
           }else{
             setResponseWs('Faltan ingresar algunos valores mas')
-            if(inputWs.length === 11){
+            if(inputWs.length === 10){
               setWs(inputWs)
               setBooleanWs(true)
               setResponseWs('')
             }else{
-              setResponseWs('El campo debe contener un máximo de 11 caracteres')
+              setResponseWs('El campo debe contener un máximo de 10 caracteres')
               setBooleanWs(false)
             }
             }
