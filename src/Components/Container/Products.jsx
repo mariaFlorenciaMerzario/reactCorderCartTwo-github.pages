@@ -14,6 +14,7 @@ const ProductList = () => {
     
     let {productId} = useParams()
     const [product, setProduct] = useState(null)
+    const [flag, setFlag] = useState(false)
     
    /* useEffect(()=>{
         setorder(0) 
@@ -25,26 +26,29 @@ const ProductList = () => {
             console.error(error)
         })
     }, [])*/
-    
+  
     useEffect(()=>{
         setorder(0) 
             const docRef = doc(db, "productos", productId );
-            getDoc(docRef)
+            getDoc(docRef)  
             .then((resp) =>{
-              setProduct(
-                {
-                  ...resp.data(), id: resp.id
-              })
-            })    
-        }, [])
-
+              
+                console.log('resp')
+                console.log(resp.data())
+            
+                if(resp.data() == undefined){    
+                    setFlag(true)
+                 
+                }else{
+                    setProduct({ ...resp.data(), id: resp.id})
+                }
+            })  
+      }, [])
     return(
     <>
-    
-    {product!= null?
+    {flag?<h1>Producto no encontrado</h1>:''}
+    {!flag && product!= null?
     <ItemDetail{...product } stock={10}/>:<Spinner/>}
-   
-   
     </>
   )
 }

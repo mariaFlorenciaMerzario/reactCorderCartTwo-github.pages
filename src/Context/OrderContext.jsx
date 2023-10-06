@@ -15,7 +15,7 @@ export const OrderProvider = ({children}) =>{
     const {cart}= useContext(CartContext)
     const {clearCart}= useContext(CartContext)
 
-    const addOrder = (userData)=>{
+   /* const addOrder = (userData)=>{
         let pedido = {
         // orderNro : parseInt(Math.random()*1000),
          buyer: userData,
@@ -23,7 +23,6 @@ export const OrderProvider = ({children}) =>{
          priceTotal: cart.reduce((obj, data) => {obj += data.price * data.quantity; return obj; }, 0)
     }
 
-    //setorder(pedido)
     const pedidosRef = collection(db, "pedidos")
     addDoc(pedidosRef, pedido)
         .then((doc) =>{
@@ -31,6 +30,10 @@ export const OrderProvider = ({children}) =>{
             clearCart()
 
         })
+    }
+    const clearOrder = () =>{
+        setorder([]) 
+    }
    
   /* const sendOrder =() =>{
     
@@ -42,18 +45,15 @@ export const OrderProvider = ({children}) =>{
         priceTotal: precioTotal
     }
 }*/
-}
-    /*const isInCart =(itemId) =>{
-        if (!Array.isArray(cart)) {
-            throw new Error('cart no es un array');
-          }
-          return cart.some(prod => prod.id === itemId);
-    }*/
+
+ 
     return(
-        <OrderContext.Provider value={{order, addOrder, setorder, pedidoId, setPedidoId}}>
+        <OrderContext.Provider value={{order, setorder, pedidoId, setPedidoId}}>
+        {/* <OrderContext.Provider value={{order, addOrder, setorder, pedidoId, setPedidoId, clearOrder}}> */}
             {children}
         </OrderContext.Provider>
     )
+    
 }
 //const db = getFirestone();
 //const orderCollection = collection(db, "orders")

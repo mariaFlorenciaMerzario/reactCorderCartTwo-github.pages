@@ -9,14 +9,16 @@ import {doc, collection, getFirestone, getDoc, addDoc} from 'firebase/firestore'
 import {db} from "../../firebase/config"
 import Pedidos from './Pedido';
 
+
 const CheckoutForm = ({}) => {
     const {addOrder}= useContext(OrderContext)
+    const {clearOrder}= useContext(OrderContext)
     const {setorder}= useContext(OrderContext)
     const {clearCart}= useContext(CartContext)
-    const {pedidoId}= useContext(OrderContext)
-    const {setPedidoId}= useContext(OrderContext)
+    /*const {pedidoId}= useContext(OrderContext)
+    const {setPedidoId}= useContext(OrderContext)*/
     const {order}= useContext(OrderContext)
-    const [pedido, setPedidos] = useState('')
+  
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [emailDos, setEmailDos] = useState('')
@@ -29,11 +31,13 @@ const CheckoutForm = ({}) => {
     const [booleanWs, setBooleanWs] = useState(false)
     const [booleanEmail, setBooleanEmail] = useState(false)
     const [booleanEmailDos, setBooleanEmailDos] = useState(false)
-    const [flat, setFlat] = useState(true)
+    const [pedidoId, setPedidoId] = useState([])
     
-console.log('pedidoId')
-console.log(pedidoId)
-  /*  useEffect(()=>{
+    const {cart}= useContext(CartContext)
+   /* useEffect(()=>{
+
+    }, [pedidoId])*/
+ /*  useEffect(()=>{
       if(pedidoId !== null){
           const docRef = doc(db, "pedidos", pedidoId );
           getDoc(docRef)
@@ -58,8 +62,7 @@ console.log(pedidoId)
             })
           }  
       }, [pedidoId])*/
-          console.log(pedido)
-          console.log(pedido)
+         
     /*function handleFunction(){
     const docRef = collection(db, "pedidos", pedidoId)
     getDoc(docRef)
@@ -69,50 +72,29 @@ console.log(pedidoId)
             setFlat(false)
         })
     }*/
-  /* function handleFunction(){
-      console.log('pedido Id antes de firebase')
-      console.log(pedidoId)
-      const docRef = doc(db, "pedidos", pedidoId)
-          getDoc(docRef)
-          .then((resp) =>{
-
-            console.log('resp')
-            console.log(resp.data())
-            
-            setPedidos({
-              ...resp.data(), id: resp.id })
-            setFlat(false)
-            })  
-    }*/
-
   
-      console.log('pedidos despues de get')
-      console.log(pedido)
-      console.log(typeof(pedido))
-   /* useEffect(() => {
-      const pedidosRef = collection(db, "pedidos");
-
-      const q = query(pedidosRef, where("id", "==", pedidoId))
-      getDocs(q)
-      .then((resp) => {
-        setPedidos(resp.docs.map((doc) => {
-            return {...doc.data(), id: doc.id} 
-          }))
-        })
-        console.log('pedidos despues de firebase')
-        console.log(q)
-
-  },[pedidoId])*/
-
     const handleConfirm = (event) =>{
         event.preventDefault();
 
         const userData = {
             name, ws, email
         }
-        addOrder(userData)
+       
+          let pedido = {
+           buyer: userData,
+           items: cart,
+           priceTotal: cart.reduce((obj, data) => {obj += data.price * data.quantity; return obj; }, 0)
+      }
+  
+      const pedidosRef = collection(db, "pedidos")
+      addDoc(pedidosRef, pedido)
+          .then((doc) =>{
+              setPedidoId(doc.id)
+              clearCart()
+  
+          })
+      
     }
-
     const validarTxt = (event) =>{
         const pattern = new RegExp( /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i);
         const inputName = event.target.value;
@@ -218,25 +200,15 @@ console.log(pedidoId)
         }
     }
 
-    if(pedidoId){
+console.log(pedidoId.length>0)
+    if(pedidoId.length>0){
       return(
         <>
         <h2 className='p-4'>Muchas gracias realizar por su compra</h2>
         <div className='bg-warning rounded w-25 m-auto p-3'>Su código de orden es: <strong>{pedidoId}</strong></div>
-      
-        {/* {flat && pedidoId.length>0?handleFunction():''} */}
-        {/* <p>Detalle</p> */}
-         {/* <Pedidos
-         
-                id={pedido.id}
-           //     name={pedido.buyer.name}
-           //     price={pedido.buyer.ws}
-            //    quantity={pedido.buyer.email}
-                total={pedido.priceTotal}
-                items={pedido.items}
-            /> */}
-              
-        <NavLink to={'/'} className="btn btn-success m-4">Volver a Comprar</NavLink>
+        { <NavLink to={`/pedido/${pedidoId}`} className="btn btn-warning">Ver detalle</NavLink> }
+       
+        {/* <NavLink to={'/'} className="btn btn-success m-4" onClick={clearOrder} >Volver a Comprar</NavLink> */}
         </>
         )
     }

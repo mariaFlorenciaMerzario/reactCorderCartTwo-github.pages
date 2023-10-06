@@ -11,7 +11,7 @@ import $ from 'jquery';
 import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
-import { BrowserRouter , Route , Routes} from 'react-router-dom';
+import { BrowserRouter , Route , Routes, Redirect} from 'react-router-dom';
 
 import Container from './Components/Container/Container';
 import Footer from './Components/Footer/Footer';
@@ -23,6 +23,8 @@ import ItemDetail from './Components/Container/ItemDetail';
 import ProductList from './Components/Container/Products';
 import { OrderProvider } from './Context/OrderContext';
 import { StockProvider} from './Context/StockContext'
+import Pedidos from './Components/Checkout/Pedido';
+import Error from './Components/Error';
 function App() {
   return (
     <div className="App">
@@ -36,9 +38,10 @@ function App() {
         <Route path='/category/:categoryName' element={<ItemListCategory />}/>
         <Route path='/category/item/:itemId' element={<Container />}/>
         <Route path='/cart' element={<Cart />}/>
-        <Route path='/checkout' element={<Checkout/>}/> 
+        <Route path='/checkout/' element={<Checkout/>}/> 
         <Route path='/productList/:productId' element={<ProductList/>}/>
-        <Route path='/:*' element={<h1>Not found</h1>}/> 
+        <Route path='/pedido/:pedidoId' element={<Pedidos/>}/>
+        <Route path={"*"} element={<Error/>} />
       </Routes>
       </OrderProvider>
       </CarProvider>

@@ -1,3 +1,17 @@
+Esto proyecto fue diseñado integramente por mi
+Se basa en una app de comidas debido a que tenia ganas de implementar esa tematica
+Esta todo  dividido en componentes al maximo
+Intenta ser una app intuitiva amigable y simple de usar
+A nivel diseno combine la gama del amarillo y negro
+El logo tambien lo pense y diseñé integramente
+Para los estilos utilicé bootstrap
+Esta subida al repo: https://github.com/mariaFlorenciaMerzario/reactCorderCartTwo-github.pages.git
+Y funcional  esta subido en firebase https://florenciareactcart.netlify.app/
+
+Trabaje en el archivo .env como para mayor seguridad y practicar ese paso
+En la carpeta data figura el archivo json.json vacio, pero como quedaba referenciado en algunos componentes si lo elimino me da error por todos lados, pero basicamente esta vacio
+El otro archivo esta completamente comentado asi que tampoco esta funcional
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
