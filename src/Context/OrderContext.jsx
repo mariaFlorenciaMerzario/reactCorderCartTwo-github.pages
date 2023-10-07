@@ -55,6 +55,4 @@ export const OrderProvider = ({children}) =>{
     )
     
 }
-//const db = getFirestone();
-//const orderCollection = collection(db, "orders")
-//addDoc(ordersCollection, order).then(({id}) =>setOrderId(id))
+

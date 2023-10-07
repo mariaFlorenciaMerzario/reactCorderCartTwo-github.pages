@@ -113,6 +113,7 @@ const CheckoutForm = ({}) => {
               if(!/^[a-zA-Z\ áéíóúÁÉÍÓÚñÑ\s]*$/.test(inputName.trim())){ 
                 setResponseName('Caracter inválido')
                 setBooleanTxt(false)
+                setName(inputName)
               } else {
                 // Si pasamos todas la validaciones anteriores, entonces el input es valido
                 setResponseName('')
@@ -206,7 +207,7 @@ console.log(pedidoId.length>0)
         <>
         <h2 className='p-4'>Muchas gracias realizar por su compra</h2>
         <div className='bg-warning rounded w-25 m-auto p-3'>Su código de orden es: <strong>{pedidoId}</strong></div>
-        { <NavLink to={`/pedido/${pedidoId}`} className="btn btn-warning">Ver detalle</NavLink> }
+        { <NavLink to={`/pedido/${pedidoId}`} className="btn btn-dark text-light m-4">Ver detalle</NavLink> }
        
         {/* <NavLink to={'/'} className="btn btn-success m-4" onClick={clearOrder} >Volver a Comprar</NavLink> */}
         </>
