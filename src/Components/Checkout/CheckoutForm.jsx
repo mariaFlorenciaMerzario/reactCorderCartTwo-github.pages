@@ -98,7 +98,6 @@ const CheckoutForm = ({}) => {
     const validarTxt = (event) =>{
         const pattern = new RegExp( /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i);
         const inputName = event.target.value;
-        console.log(inputName)
        
         if(inputName === '') {
             setResponseName('El campo no puede estar vacío')
@@ -112,8 +111,8 @@ const CheckoutForm = ({}) => {
               // Tercera validacion, si input contiene caracteres diferentes a los permitidos
               if(!/^[a-zA-Z\ áéíóúÁÉÍÓÚñÑ\s]*$/.test(inputName.trim())){ 
                 setResponseName('Caracter inválido')
-                setBooleanTxt(false)
                 setName(inputName)
+                setBooleanTxt(false)
               } else {
                 // Si pasamos todas la validaciones anteriores, entonces el input es valido
                 setResponseName('')
